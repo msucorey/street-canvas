@@ -1,5 +1,6 @@
 ## Street Canvas
 ![logo](dev_assets/street_canvas_logo_banner.jpg)
+
 **Team**:
 
 **Brent Gummow**
