@@ -78,6 +78,12 @@ const renderFullPage = (html, initialState) => {
         ${process.env.NODE_ENV === 'production' ? `<link rel='stylesheet' href='${assetsManifest['/app.css']}' />` : ''}
         <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700" rel="stylesheet">
         <link rel="shortcut icon" href="http://res.cloudinary.com/streetcanvas/image/upload/v1491277108/favicon_dvbm6p.ico" type="image/png" />
+        <style>
+          #map {
+          	height:400px;
+          	width:100%;
+          }
+        </style>
       </head>
       <body>
         <div id="root">${html}</div>
@@ -90,6 +96,24 @@ const renderFullPage = (html, initialState) => {
         </script>
         <script src='${process.env.NODE_ENV === 'production' ? assetsManifest['/vendor.js'] : '/vendor.js'}'></script>
         <script src='${process.env.NODE_ENV === 'production' ? assetsManifest['/app.js'] : '/app.js'}'></script>
+          <script>
+           function initMap() {
+             var SF = {lat: 37.7758, lng: -122.435};
+             var map = new google.maps.Map(document.getElementById('map'), {
+               zoom: 12,
+               center: SF,
+               disableDefaultUI: true,
+               zoomControl: true,
+             });
+             var marker = new google.maps.Marker({
+               position: SF,
+               map: map
+             });
+           }
+         </script>
+          <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhceKRzPK-eg1b5nyQ6C1EHLhEkLr5_U4&callback=initMap"></script>
+
       </body>
     </html>
   `;
