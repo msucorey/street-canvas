@@ -7,12 +7,13 @@ import IntlWrapper from '../client/modules/Intl/IntlWrapper';
 import passport from 'passport';
 
 // [SH] Bring in the data model
-require('./models/db');
+import './models/db';
+
 // [SH] Bring in the Passport config after model is defined
-require('../config/passport');
+import '../config/passport';//
 
 // [SH] Bring in the routes for the API (delete the default routes)
-import routesApi from './app_api/routes/index';
+import routesApi from './routes/index';
 
 // Webpack Requirements
 import webpack from 'webpack';
