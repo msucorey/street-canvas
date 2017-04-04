@@ -39,5 +39,9 @@ export default (
         });
       }}
     />
+    <Route path="home" />//TODO add components for testing
+    <Route path="register" />
+    <Route path="login" />
+    <Route path="profile" />
   </Route>
 );
