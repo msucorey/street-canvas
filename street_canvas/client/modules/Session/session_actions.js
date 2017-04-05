@@ -1,14 +1,16 @@
+import { registerd } from '../../../server/controllers/authentication';
 import * as APIUtil from './session_api_util';
-export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
-export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
-export const CLEAR_ERRORS = "CLEAR_ERRORS";
+export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
+export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 import { hashHistory } from 'react-router';
 
-export const signup = user => dispatch => (
-  APIUtil.signup(user)
-    .then(xuser => dispatch(receiveCurrentUser(xuser)),
-      err => dispatch(receiveErrors(err.responseJSON)))
-);
+export const signup = user => dispatch => {
+  register(user)
+    .error((err) => (dispatch(receiveErrors(err.responseJSON))))
+    .then((token) => (console.log(`success!!! ${token}`)));
+  // return dispatch(receiveCurrentUser(user);
+};
 
 export const login = user => dispatch => (
   APIUtil.login(user)

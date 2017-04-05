@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router';
 class AuthForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { username: '', email: '', password: '' };
+    this.state = { name: '', email: '', password: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -12,11 +12,11 @@ class AuthForm extends React.Component {
     this.redirectIfLoggedIn();
   }
 
-  redirectIfLoggedIn() {
-    if (this.props.loggedIn) {
-      this.props.router.push('/home');
-    }
-  }
+  // redirectIfLoggedIn() {
+  //   if (this.props.loggedIn) {
+  //     this.props.router.push('/home');
+  //   }
+  // }
 
   update(field) {
     return e => this.setState({
@@ -26,9 +26,10 @@ class AuthForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    console.log('handling submit!');
+    alert('handling!');
     const user = this.state;
-    this.props.processForm({ user });
-    //test out with direct call to logi
+    this.props.processForm(user);
   }
 
   navLink() {
@@ -59,8 +60,8 @@ class AuthForm extends React.Component {
       <div>
         <br/>
           <input type="text"
-            value={this.state.username}
-            onChange={this.update("username")}
+            value={this.state.name}
+            onChange={this.update("name")}
             placeholder="First name (or nickname)" />
       </div>
     );
@@ -71,7 +72,7 @@ class AuthForm extends React.Component {
     "It's good to have you back.  Sign in here!" : "We can't wait for you to join";
 
     return (
-      <div className="auth-form">
+      <div>
         <form onSubmit={this.handleSubmit}>
           <h2>{greetingText}</h2>
           <p>{inviteText}</p>
@@ -81,12 +82,12 @@ class AuthForm extends React.Component {
           <div>
             <input type="text"
               value={this.state.email}
-              onChange={this.update("email")}
+              onChange={this.update('email')}
               placeholder="Email address" />
             <br/>
               <input type="password"
                 value={this.state.password}
-                onChange={this.update("password")}
+                onChange={this.update('password')}
                 placeholder="Password"/>
             <br/>
             <input type="submit"
