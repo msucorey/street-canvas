@@ -18,7 +18,7 @@ export function configureStore(initialState = {}) {
   }
 
   const store = createStore(rootReducer, initialState, compose(...enhancers));
-
+  
   // For hot reloading reducers
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
