@@ -1,6 +1,20 @@
 import Post from './models/post';
+import Photo from './models/Photo';
 
 export default function () {
+  Photo.count().exec((err, count) => {
+    if (count > 0) {
+      return;
+    }
+    const photo1 = new Photo({
+      photo_url: 'http://res.cloudinary.com/streetcanvas/image/upload/v1491414710/IMG_20170214_125605_iytljf.jpg',
+      description: 'Anatomical bat by Austrian surgeon/street artist, Nychos', lat: '37.7875099', lng: '-122.397319' });
+
+    Photo.create([photo1], (error) => {
+      if (!error) {
+      }
+    });
+  });
   Post.count().exec((err, count) => {
     if (count > 0) {
       return;
