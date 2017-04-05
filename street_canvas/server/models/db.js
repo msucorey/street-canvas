@@ -46,3 +46,4 @@
 
 // BRING IN YOUR SCHEMAS & MODELS
 import './users';
+import './Photo';
