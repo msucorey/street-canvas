@@ -2,6 +2,7 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import App from './modules/App/App';
+import AuthFormContainer from './modules/Session/pages/auth_form_container';
 
 // require.ensure polyfill for node
 if (typeof require.ensure !== 'function') {
@@ -31,6 +32,10 @@ export default (
         });
       }}
     />
+    <Route path="/home" />//TODO add components for testing
+    <Route path="/register" component={AuthFormContainer} />
+    <Route path="/login" />
+    <Route path="/profile" />
     <Route
       path="/posts/:slug-:cuid"
       getComponent={(nextState, cb) => {
@@ -39,9 +44,6 @@ export default (
         });
       }}
     />
-    <Route path="home" />//TODO add components for testing
-    <Route path="register" />
-    <Route path="login" />
-    <Route path="profile" />
   </Route>
+
 );
