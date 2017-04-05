@@ -28,6 +28,7 @@ class AuthForm extends React.Component {
     e.preventDefault();
     const user = this.state;
     this.props.processForm({ user });
+    //test out with direct call to logi
   }
 
   navLink() {
