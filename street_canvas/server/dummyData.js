@@ -8,7 +8,7 @@ export default function () {
     }
     const photo1 = new Photo({
       photo_url: 'http://res.cloudinary.com/streetcanvas/image/upload/v1491414710/IMG_20170214_125605_iytljf.jpg',
-      description: 'Anatomical bat by Austrian surgeon/street artist, Nychos', lat: '37.7875099', lng: '-122.397319' });
+      description: 'Anatomical bat by Austrian surgeon/street artist, Nychos', lat: '37.7875099', lng: '-122.397319', cuid: 'cikqgkv4q01ck7453ualdn7fq' });
 
     Photo.create([photo1], (error) => {
       if (!error) {
