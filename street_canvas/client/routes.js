@@ -56,6 +56,14 @@ export default (
       }}
     />
     <Route
+      path="/photos"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./modules/Photo/pages/PhotoListPage/PhotoListPage').default);
+        });
+      }}
+    />
+    <Route
       path="/login"
       onEnter={requireNotLoggedIn}
       getComponent={(nextState, cb) => {

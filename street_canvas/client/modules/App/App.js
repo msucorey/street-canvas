@@ -48,7 +48,6 @@ export class App extends Component {
             ]}
           />
           <Header toggleAddPost={this.toggleAddPostSection} />
-          <Map />
           <div className={styles.container}>
             {this.props.children}
           </div>
