@@ -3,12 +3,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 // Import Style
-import styles from '../../Photo.css';
+import styles from './Photo.css';
 
 class Photo extends Component {
   render() {
     return (
-      <div></div>
     );
   }
 }
