@@ -4,18 +4,6 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import path from 'path';
 
-import passport from 'passport';
-
-// [SH] Bring in the data model
-import './models/db';
-
-// [SH] Bring in the Passport config after model is defined
-import '../config/passport';//
-
-// [SH] Bring in the routes for the API (delete the default routes)
-import routesApi from './routes/index';//
-
-
 // Webpack Requirements
 import webpack from 'webpack';
 import config from '../webpack.config.dev';
@@ -40,10 +28,14 @@ import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
 import Helmet from 'react-helmet';
 
+// cookie for JWT token
+import cookie from 'react-cookie';
+import cookieParser from 'cookie-parser';
+
 // Import required modules
 import routes from '../client/routes';
 import { fetchComponentData } from './util/fetchData';
-import posts from './routes/post.routes';
+import api from './routes/api.routes';
 import dummyData from './dummyData';
 import serverConfig from './config';
 
@@ -65,12 +57,9 @@ mongoose.connect(serverConfig.mongoURL, (error) => {
 app.use(compression());
 app.use(bodyParser.json({ limit: '20mb' }));
 app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
+app.use(cookieParser());
 app.use(Express.static(path.resolve(__dirname, '../dist')));
-app.use(passport.initialize());
-app.use('/api', posts);//
-
-// [SH] Use the API routes when path starts with /api
-app.use('/api', routesApi);
+app.use('/api', api);
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {
@@ -160,14 +149,6 @@ app.use((req, res, next) => {
 app.listen(serverConfig.port, (error) => {
   if (!error) {
     console.log(`MERN is running on port: ${serverConfig.port}! Build something amazing!`); // eslint-disable-line
-  }
-});
-
-// [SH] Catch unauthorised errors
-app.use((err, req, res) => {
-  if (err.name === 'UnauthorizedError') {
-    res.status(401);
-    res.json({ message: err.name });
   }
 });
 
