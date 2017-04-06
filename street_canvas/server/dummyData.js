@@ -17,7 +17,7 @@ export default function () {
       description: 'Mosaic stairs', lat: '37.756279', lng: '-122.4756077', cuid: 'cikqgkv4q01ck7453uaadfabe' });
     const photo4 = new Photo({
       photo_url: 'http://res.cloudinary.com/streetcanvas/image/upload/v1491454815/fire_steel_xxg1nw.jpg',
-      description: 'Steel and Fire', lat: '37.806', lng: '-122.269', cuid: 'cikqgkv4q01ck7453ualdn7fq' });
+      description: 'Steel and Fire', lat: '37.806', lng: '-122.269', cuid: 'cikqgkv4q01ck7453ualsg34t' });
 
     Photo.create([photo4, photo3, photo2, photo1], (error) => {
       if (!error) {
