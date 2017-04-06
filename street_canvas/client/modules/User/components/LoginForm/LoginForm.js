@@ -1,8 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 
-// Import Style
-import styles from './LoginForm.css';
-
 export class LoginForm extends Component {
   onLogin = () => {
     const usernameRef = this.refs.username;
@@ -15,11 +12,12 @@ export class LoginForm extends Component {
 
   render() {
     return (
-      <div className={styles['form-content']}>
-        <h2 className={styles['form-title']}><FormattedMessage id="loginTitle" /></h2>
-        <input placeholder={this.props.intl.messages.username} className={styles['form-field']} ref="username" />
-        <input placeholder={this.props.intl.messages.password} className={styles['form-field']} ref="password" type="password" />
-        <a className={styles['submit-button']} onClick={this.onLogin}><FormattedMessage id="submit" /></a>
+      <div >
+        <h2>username</h2>
+        <input ref="username" />
+        <h2>password</h2>
+        <input ref="password" type="password" />
+        <a onClick={this.onLogin}>submit</a>
       </div>
     );
   }
@@ -29,4 +27,4 @@ LoginForm.propTypes = {
   login: PropTypes.func.isRequired,
 };
 
-export default injectIntl(LoginForm);
+export default LoginForm;

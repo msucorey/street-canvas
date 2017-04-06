@@ -23,15 +23,15 @@ if (process.env.NODE_ENV !== 'production') {
 
 const requireLoggedIn = (nextState, replace, cb) => {
   const authCookie = cookie.load('mernAuth');
-  if(!authCookie || !authCookie.t) {
+  if (!authCookie || !authCookie.t) {
     replace('/');
   }
   cb();
 };
 const requireNotLoggedIn = (nextState, replace, cb) => {
   const authCookie = cookie.load('mernAuth');
-  if(authCookie && authCookie.t) {
-      replace('/');
+  if (authCookie && authCookie.t) {
+    replace('/');
   }
   cb();
 };
@@ -74,14 +74,5 @@ export default (
       }}
     />
     {/* TODO refactor above to use !requireLoggedIn and get rid of requireNotLoggedIn???*/}
-    <Route
-      path="/profile"
-      onEnter={requireLoggedIn}
-      getComponent={(nextState, cb) => {
-        require.ensure([], require => {
-          cb(null, require('./modules/User/pages/ProfilePage/ProfilePage').default);
-        });
-      }}
-    />
   </Route>
 );
