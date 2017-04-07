@@ -51,16 +51,6 @@ class PhotoListPage extends Component {
     return (
       <div>
         <span className={styles.mainmap} ref="map">Map</span>
-        {
-          this.props.photos.map(photo => (
-            <section>
-              <img alt="streetart" src={photo.photo_url} className={styles['main-photo']} />
-              <p>{photo.description}</p>
-              <p>{photo.lng}</p>
-              <p>{photo.lat}</p>
-            </section>
-          ))
-        }
       </div>
     );
   }
