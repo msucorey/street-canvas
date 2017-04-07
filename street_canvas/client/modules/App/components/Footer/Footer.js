@@ -9,8 +9,8 @@ export function Footer() {
     <div className={styles.footer}>
       <ul>
         <li className={styles.bottomNav}> <Link to="/" >MAP</Link></li>
-        <li className={styles.bottomNav}><Link to="/" >GALLERY</Link></li>
-        <li className={styles.addButton}><Link to="/" >+</Link></li>
+        <li className={styles.bottomNav}><Link to="/gallery" >GALLERY</Link></li>
+        <li className={styles.addButton}><Link to="/add" >+</Link></li>
       </ul>
     </div>
   );

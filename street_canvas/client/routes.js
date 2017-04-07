@@ -76,7 +76,11 @@ export default (
     />
     <Route
       path="/photos/:cuid"
-      component={PhotoDetailPage}
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./modules/Photo/pages/PhotoDetailPage/PhotoDetailPage').default);
+        });
+      }}
     />
     <Route
       path="/add"
