@@ -20,6 +20,7 @@ export function addPhotoRequest(photo) {
       photo: {
         photo_url: photo.photo_url,
         description: photo.description,
+        cuid: photo.description,
         lat: photo.lat,
         lng: photo.lng,
       },

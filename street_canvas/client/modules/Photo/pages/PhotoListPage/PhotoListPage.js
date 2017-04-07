@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { hashHistory } from 'react-router';
 import { connect } from 'react-redux';
+import { isEmpty } from 'lodash';
+import Loading from '../../loading';
 // import { bindActionCreators } from 'redux';
 
 // Import Style
@@ -28,35 +30,26 @@ class PhotoListPage extends Component {
   }
 
   render() {
-
-    this.marker = new google.maps.Marker({
-      position: { lat: 37.7875099, lng: -122.397319 },
-      map: this.map
-    });
-    this.props.photos.map(photo => {
-      this.marker = new google.maps.Marker({
-        position: { lat: photo.lat, lng: photo.lng },
-        map: this.map
+    if (isEmpty(this.props.photos)) {
+      return (
+        <Loading />
+      );
+    } else {
+      this.props.photos.map(photo => {
+        this.marker = new google.maps.Marker({
+          position: { lat: photo.lat, lng: photo.lng },
+          map: this.map
+        });
+        google.maps.event.addListener(this.marker, 'click', () => (hashHistory.push(`/photos/${photo.cuid}`)));
+        return 0;
       });
-      google.maps.event.addListener(this.marker, 'click', () => (hashHistory.push(`/photos/${photo.cuid}`)));
-      return 0;
-    });
 
-    return (
-      <div>
-        <span className={styles.mainmap} ref="map">Map</span>
-        {
-          this.props.photos.map(photo => (
-            <section>
-              <img alt="streetart" src={photo.photo_url} className={styles['main-photo']} />
-              <p>{photo.description}</p>
-              <p>{photo.lng}</p>
-              <p>{photo.lat}</p>
-            </section>
-          ))
-        }
-      </div>
-    );
+      return (
+        <div>
+          <span className={styles.mainmap} ref="map">Map</span>
+        </div>
+      );
+    }
   }
 }
 
@@ -71,6 +64,7 @@ PhotoListPage.propTypes = {
   photos: PropTypes.arrayOf(PropTypes.shape({
     photo_url: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
+    cuid: PropTypes.string.isRequired,
     lng: PropTypes.number.isRequired,
     lat: PropTypes.number.isRequired,
   })).isRequired,

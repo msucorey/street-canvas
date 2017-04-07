@@ -1,5 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { isEmpty } from 'lodash';
+import { Link } from 'react-router';
+import Loading from '../../loading';
 // import { bindActionCreators } from 'redux';
 
 // Import Style
@@ -18,17 +21,16 @@ class PhotoGalleryPage extends Component {
   }
 
   render() {
-    console.log(this.props);
+    if (isEmpty(this.props.photos)) {
+      return <Loading />;
+    }
     return (
       <div>
         {
           this.props.photos.map(photo => (
-            <section>
-              <img alt="streetart" src={photo.photo_url} className={styles['main-photo']} />
-              <p>{photo.description}</p>
-              <p>{photo.lng}</p>
-              <p>{photo.lat}</p>
-            </section>
+            <div>
+              <Link to={'/photos/' + photo.cuid}><img alt="streetart" src={photo.photo_url} className={styles['main-photo']} /></Link>
+            </div>
           ))
         }
       </div>
@@ -46,6 +48,7 @@ const mapStateToProps = (state) => {
 PhotoGalleryPage.propTypes = {
   photos: PropTypes.arrayOf(PropTypes.shape({
     photo_url: PropTypes.string.isRequired,
+    cuid: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     lng: PropTypes.number.isRequired,
     lat: PropTypes.number.isRequired,

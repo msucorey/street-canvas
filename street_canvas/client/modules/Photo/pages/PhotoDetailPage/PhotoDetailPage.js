@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { isEmpty } from 'lodash';
 // import { bindActionCreators } from 'redux';
 
 // Import Style
@@ -39,6 +40,7 @@ PhotoDetailPage.propTypes = {
   photo: PropTypes.shape({
     photo_url: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
+    cuid: PropTypes.string.isRequired,
     lng: PropTypes.number.isRequired,
     lat: PropTypes.number.isRequired,
   }).isRequired,

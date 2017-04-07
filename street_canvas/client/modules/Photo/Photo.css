@@ -5,10 +5,9 @@
 
 
 .mainmap {
-  height: 500px;
+  margin-top:10px;
+  height: 400px;
   width: 100%;
-  float: left;
-  position: relative;
 }
 .single-description {
   width: 100%;
@@ -22,5 +21,58 @@
 
 section {
   margin-bottom:30px;
+}
 
+.add-container {
+  margin-top:30px;
+  width:350px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.add-container h2 {
+  margin-bottom:10px;
+}
+
+.add-container p {
+  margin-top: 10px;
+}
+.form-field {
+  width:350px;
+  height: 40px;
+  font-size: 18px;
+  margin-bottom:10px;
+  margin-top:10px;
+  padding: 4px;
+}
+
+.photo-submit-button{
+  text-transform:uppercase;
+  border-radius:14px;
+  padding: 10px;
+  background: #6705c5;
+  color: #ffffff;
+
+  float:right;
+}
+
+.loading {
+  margin-top: 100px;
+  width:180px;
+  height: 500px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+
+.innerLoading img {
+  width: 60px;
+  float: left;
+}
+
+.innerLoading h3 {
+  margin-left: 16px;
+  margin-top: 20px;
+  float:left;
+  font-size: 24px;
 }

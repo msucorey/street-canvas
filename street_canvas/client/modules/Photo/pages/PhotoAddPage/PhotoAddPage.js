@@ -6,57 +6,40 @@ import { connect } from 'react-redux';
 import styles from '../../Photo.css';
 
 // Import Actions
-import { fetchPhotos } from '../../PhotoActions';
+import { fetchPhoto } from '../../PhotoActions';
 
 // Import Selectors
-import { getPhotos } from '../../PhotoReducer';
+import { getPhoto } from '../../PhotoReducer';
 
 
-class PhotoAddPage extends Component {
-  componentDidMount() {
-    this.props.dispatch(fetchPhotos());
-  }
+export class PhotoAddPage extends Component {
+  addPhoto = () => {
+    const descriptionRef = this.refs.description;
+    // const titleRef = this.refs.title;
+    // const contentRef = this.refs.content;
+    // if (nameRef.value && titleRef.value && contentRef.value) {
+    //   this.props.addPost(nameRef.value, titleRef.value, contentRef.value);
+    //   nameRef.value = titleRef.value = contentRef.value = '';
+    // }
+  };
 
   render() {
-    console.log(this.props);
     return (
-      <div>
-        {
-          this.props.photos.map(photo => (
-            <section>
-              <img alt="streetart" src={photo.photo_url} className={styles['main-photo']} />
-              <p>{photo.description}</p>
-              <p>{photo.lng}</p>
-              <p>{photo.lat}</p>
-            </section>
-          ))
-        }
+      <div >
+        <div className={styles['add-container']}>
+          <h2 >Add a Photo</h2>
+          <p>SELECT LOCATION GOES HERE</p>
+          <p>UPLOAD PHOTO (TAKE PHOTO) GOES HERE</p>
+          <input placeholder="description" className={styles['form-field']} ref="description" /><br />
+          <a className={styles['photo-submit-button']} href="#" onClick={this.addPhoto}>Submit</a>
+        </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    photos: getPhotos(state),
-  };
-};
-
-
 PhotoAddPage.propTypes = {
-  photos: PropTypes.arrayOf(PropTypes.shape({
-    photo_url: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    lng: PropTypes.number.isRequired,
-    lat: PropTypes.number.isRequired,
-  })).isRequired,
-  dispatch: PropTypes.func.isRequired,
+  addPhoto: PropTypes.func.isRequired,
 };
 
-PhotoAddPage.contextTypes = {
-  router: React.PropTypes.object,
-};
-
-export default connect(
-  mapStateToProps
-)(PhotoAddPage);
+export default PhotoAddPage;
