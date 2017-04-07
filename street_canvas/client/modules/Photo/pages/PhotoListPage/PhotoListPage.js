@@ -35,10 +35,6 @@ class PhotoListPage extends Component {
         <Loading />
       );
     } else {
-      this.marker = new google.maps.Marker({
-        position: { lat: 37.7875099, lng: -122.397319 },
-        map: this.map
-      });
       this.props.photos.map(photo => {
         this.marker = new google.maps.Marker({
           position: { lat: photo.lat, lng: photo.lng },
@@ -47,12 +43,13 @@ class PhotoListPage extends Component {
         google.maps.event.addListener(this.marker, 'click', () => (hashHistory.push(`/photos/${photo.cuid}`)));
         return 0;
       });
+
+      return (
+        <div>
+          <span className={styles.mainmap} ref="map">Map</span>
+        </div>
+      );
     }
-    return (
-      <div>
-        <span className={styles.mainmap} ref="map">Map</span>
-      </div>
-    );
   }
 }
 
