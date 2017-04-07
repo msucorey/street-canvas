@@ -3,6 +3,9 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import cookie from 'react-cookie';
 import App from './modules/App/App';
+import PhotoDetailPage from './modules/Photo/pages/PhotoDetailPage/PhotoDetailPage';
+import PhotoAddPage from './modules/Photo/pages/PhotoAddPage/PhotoAddPage';
+import PhotoGalleryPage from './modules/Photo/pages/PhotoGalleryPage/PhotoGalleryPage';
 
 // require.ensure polyfill for node
 if (typeof require.ensure !== 'function') {
@@ -43,6 +46,14 @@ export default (
     <IndexRoute
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
+          cb(null, require('./modules/Photo/pages/PhotoListPage/PhotoListPage').default);
+        });
+      }}
+    />
+    <Route
+      path="/posts"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
           cb(null, require('./modules/Post/pages/PostListPage/PostListPage').default);
         });
       }}
@@ -62,6 +73,18 @@ export default (
           cb(null, require('./modules/Photo/pages/PhotoListPage/PhotoListPage').default);
         });
       }}
+    />
+    <Route
+      path="/photos/:cuid"
+      component={PhotoDetailPage}
+    />
+    <Route
+      path="/add"
+      component={PhotoAddPage}
+    />
+    <Route
+      path="/gallery"
+      component={PhotoGalleryPage}
     />
     <Route
       path="/login"
