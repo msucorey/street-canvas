@@ -1,4 +1,6 @@
 import React, { Component, PropTypes } from 'react';
+import styles from './LoginForm.css';
+import { Link } from 'react-router';
 
 export class LoginForm extends Component {
   onLogin = () => {
@@ -12,12 +14,12 @@ export class LoginForm extends Component {
 
   render() {
     return (
-      <div >
-        <h2>username</h2>
-        <input ref="username" />
-        <h2>password</h2>
-        <input ref="password" type="password" />
-        <a onClick={this.onLogin}>submit</a>
+      <div className={styles['form-content']} >
+        <h2 className={styles['form-title']}>Log In</h2>
+        <p className={styles['form-p']}>New users please <Link to="/register">sign up here</Link></p>
+        <input className={styles['form-field']} ref="username" placeholder="Email" />
+        <input ref="password" className={styles['form-field']} placeholder="Password" type="password" />
+        <a className={styles['submit-button']} onClick={this.onLogin}>submit</a>
       </div>
     );
   }
