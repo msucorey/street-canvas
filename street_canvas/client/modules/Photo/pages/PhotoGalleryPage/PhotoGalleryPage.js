@@ -28,8 +28,8 @@ class PhotoGalleryPage extends Component {
       <div>
         {
           this.props.photos.map(photo => (
-            <div>
-              <Link to={'/photos/' + photo.cuid}><img alt="streetart" src={photo.photo_url} className={styles['main-photo']} /></Link>
+            <div className={styles['gallery-container']}>
+              <div><Link to={'/photos/' + photo.cuid}><img alt="streetart" src={photo.photo_url} /> </Link></div>
             </div>
           ))
         }
