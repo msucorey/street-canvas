@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { hashHistory } from 'react-router';
 import { connect } from 'react-redux';
-import { isEmpty } from 'lodash';
-import Loading from '../../loading';
+// import { isEmpty } from 'lodash';
+// import Loading from '../../loading';
 // import { bindActionCreators } from 'redux';
 
 // Import Style
@@ -16,8 +16,20 @@ import { getPhotos } from '../../PhotoReducer';
 
 
 class PhotoListPage extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { loaded: false };
+    this.initMap = this.initMap.bind(this);
+  }
+
   componentDidMount() {
     this.props.dispatch(fetchPhotos());
+    window.initMap = this.initMap;
+    loadJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyC3xkNlmWAK_4v52ewKZbnUoifMcYAxIy8&callback=initMap');
+  }
+
+  initMap() {
     // set the map to show SF
     const mapOptions = {
       center: { lat: 37.7758, lng: -122.435 }, // this is SF
@@ -25,16 +37,12 @@ class PhotoListPage extends Component {
       disableDefaultUI: true,
       zoomControl: true,
     };
-
     this.map = new google.maps.Map(this.refs.map, mapOptions);
+    this.setState({ loaded: true });
   }
 
   render() {
-    if (isEmpty(this.props.photos)) {
-      return (
-        <Loading />
-      );
-    } else {
+    if (this.state.loaded) {
       this.props.photos.map(photo => {
         this.marker = new google.maps.Marker({
           position: { lat: photo.lat, lng: photo.lng },
@@ -43,14 +51,22 @@ class PhotoListPage extends Component {
         google.maps.event.addListener(this.marker, 'click', () => (hashHistory.push(`/photos/${photo.cuid}`)));
         return 0;
       });
-
-      return (
-        <div>
-          <span className={styles.mainmap} ref="map">Map</span>
-        </div>
-      );
     }
+
+    return (
+      <div>
+        <div className={styles.mainmap} ref="map">Map</div>
+      </div>
+    );
   }
+}
+
+function loadJS(src) {
+  const ref = window.document.getElementsByTagName('script')[0];
+  const script = window.document.createElement('script');
+  script.src = src;
+  script.async = true;
+  ref.parentNode.insertBefore(script, ref);
 }
 
 const mapStateToProps = (state) => {

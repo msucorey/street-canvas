@@ -82,8 +82,6 @@ const renderFullPage = (html, initialState) => {
         ${process.env.NODE_ENV === 'production' ? `<link rel='stylesheet' href='${assetsManifest['/app.css']}' />` : ''}
         <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700" rel="stylesheet">
         <link rel="shortcut icon" href="http://res.cloudinary.com/streetcanvas/image/upload/v1491277108/favicon_dvbm6p.ico" type="image/png" />
-          <script
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3xkNlmWAK_4v52ewKZbnUoifMcYAxIy8"></script>
         </body>
       </head>
       <body>
