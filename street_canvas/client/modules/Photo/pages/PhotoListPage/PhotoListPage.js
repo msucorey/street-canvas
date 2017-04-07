@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { hashHistory } from 'react-router';
+import { browserHistory, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 // import { isEmpty } from 'lodash';
 // import Loading from '../../loading';
@@ -50,7 +50,7 @@ class PhotoListPage extends Component {
           position: { lat: photo.lat, lng: photo.lng },
           map: this.map
         });
-        google.maps.event.addListener(this.marker, 'click', () => (hashHistory.push(`/photos/${photo.cuid}`)));
+        google.maps.event.addListener(this.marker, 'click', () => (browserHistory.push(`/photos/${photo.cuid}`)));
         return 0;
       });
     }
