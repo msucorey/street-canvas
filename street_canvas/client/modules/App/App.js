@@ -8,7 +8,7 @@ import styles from './App.css';
 import Helmet from 'react-helmet';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import Map from './components/Map/Map';
+
 
 // Import Actions
 import { toggleAddPost } from './AppActions';

@@ -24,3 +24,25 @@ section {
   margin-bottom:30px;
 
 }
+
+
+.loading {
+  margin-top: 100px;
+  width:180px;
+  height: 500px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+
+.innerLoading img {
+  width: 60px;
+  float: left;
+}
+
+.innerLoading h3 {
+  margin-left: 16px;
+  margin-top: 20px;
+  float:left;
+  font-size: 24px;
+}

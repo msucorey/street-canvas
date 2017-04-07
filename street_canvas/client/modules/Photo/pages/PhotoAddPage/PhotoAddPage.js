@@ -47,6 +47,7 @@ PhotoAddPage.propTypes = {
   photos: PropTypes.arrayOf(PropTypes.shape({
     photo_url: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
+    cuid: PropTypes.string.isRequired,
     lng: PropTypes.number.isRequired,
     lat: PropTypes.number.isRequired,
   })).isRequired,

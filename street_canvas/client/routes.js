@@ -6,6 +6,7 @@ import App from './modules/App/App';
 import PhotoDetailPage from './modules/Photo/pages/PhotoDetailPage/PhotoDetailPage';
 import PhotoAddPage from './modules/Photo/pages/PhotoAddPage/PhotoAddPage';
 import PhotoGalleryPage from './modules/Photo/pages/PhotoGalleryPage/PhotoGalleryPage';
+import Loading from './modules/Photo/loading';
 
 // require.ensure polyfill for node
 if (typeof require.ensure !== 'function') {
@@ -85,6 +86,10 @@ export default (
     <Route
       path="/add"
       component={PhotoAddPage}
+    />
+    <Route
+      path="/loading"
+      component={Loading}
     />
     <Route
       path="/gallery"
