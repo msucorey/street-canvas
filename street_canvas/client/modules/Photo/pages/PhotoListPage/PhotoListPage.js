@@ -26,7 +26,9 @@ class PhotoListPage extends Component {
   componentDidMount() {
     this.props.dispatch(fetchPhotos());
     window.initMap = this.initMap;
-    loadJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyC3xkNlmWAK_4v52ewKZbnUoifMcYAxIy8&callback=initMap');
+    if (!this.state.loaded) {
+      setTimeout(this.initMap, 20);
+    }
   }
 
   initMap() {
