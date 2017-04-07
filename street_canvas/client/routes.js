@@ -97,7 +97,6 @@ export default (
     />
     <Route
       path="/login"
-      onEnter={requireNotLoggedIn}
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
           cb(null, require('./modules/User/pages/LoginPage/LoginPage').default);
@@ -106,7 +105,6 @@ export default (
     />
     <Route
       path="/register"
-      onEnter={requireNotLoggedIn}
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
           cb(null, require('./modules/User/pages/RegisterPage/RegisterPage').default);
