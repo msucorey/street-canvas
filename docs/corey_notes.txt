@@ -5,6 +5,8 @@ When including the google script tag, be sure to put it above yield and remove t
 
  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key={YOUR_API_KEY}" %>
 
+ AIzaSyC3xkNlmWAK_4v52ewKZbnUoifMcYAxIy8
+
  componentDidMount() {
   // set the map to show SF
   const mapOptions = {

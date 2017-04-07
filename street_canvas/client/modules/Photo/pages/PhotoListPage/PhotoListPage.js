@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
 
@@ -15,12 +16,35 @@ import { getPhotos } from '../../PhotoReducer';
 class PhotoListPage extends Component {
   componentDidMount() {
     this.props.dispatch(fetchPhotos());
+    // set the map to show SF
+    const mapOptions = {
+      center: { lat: 37.7758, lng: -122.435 }, // this is SF
+      zoom: 13,
+      disableDefaultUI: true,
+      zoomControl: true,
+    };
+
+    this.map = new google.maps.Map(this.refs.map, mapOptions);
   }
 
   render() {
-    console.log(this.props);
+
+    this.marker = new google.maps.Marker({
+      position: { lat: 37.7875099, lng: -122.397319 },
+      map: this.map
+    });
+    this.props.photos.map(photo => {
+      this.marker = new google.maps.Marker({
+        position: { lat: photo.lat, lng: photo.lng },
+        map: this.map
+      });
+      google.maps.event.addListener(this.marker, 'click', () => (hashHistory.push(`/photos/${photo.cuid}`)));
+      return 0;
+    });
+
     return (
       <div>
+        <span className={styles.mainmap} ref="map">Map</span>
         {
           this.props.photos.map(photo => (
             <section>

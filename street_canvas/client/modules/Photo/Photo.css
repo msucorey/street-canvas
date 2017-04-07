@@ -3,6 +3,13 @@
   width:100%;
 }
 
+
+.mainmap {
+  height: 500px;
+  width: 100%;
+  float: left;
+  position: relative;
+}
 .single-description {
   width: 100%;
   background-color: black;
@@ -15,4 +22,5 @@
 
 section {
   margin-bottom:30px;
+
 }
