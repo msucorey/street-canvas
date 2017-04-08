@@ -1,12 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+
 // import { bindActionCreators } from 'redux';
 
 // Import Style
 import styles from '../../Photo.css';
 
 // Import Actions
-import { fetchPhoto } from '../../PhotoActions';
+import { fetchPhoto, addPhotoRequest } from '../../PhotoActions';
 
 // Import Selectors
 import { getPhoto } from '../../PhotoReducer';
@@ -28,10 +29,12 @@ export class PhotoAddPage extends Component {
       <div >
         <div className={styles['add-container']}>
           <h2 >Add a Photo</h2>
-          <p>SELECT LOCATION GOES HERE</p>
-          <p>UPLOAD PHOTO (TAKE PHOTO) GOES HERE</p>
-          <input placeholder="description" className={styles['form-field']} ref="description" /><br />
-          <a className={styles['photo-submit-button']} href="#" onClick={this.addPhoto}>Submit</a>
+          <form action="/photos" method="post" encType="multipart/form-data" >
+            <p>SELECT LOCATION GOES HERE</p>
+            <input name="image" type="file" />
+            <input placeholder="description" className={styles['form-field']} ref="description" /><br />
+            <button className={styles['photo-submit-button']} href="#" onClick={this.addPhoto}>Submit</button>
+          </form>
         </div>
       </div>
     );

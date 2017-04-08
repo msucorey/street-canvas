@@ -56,7 +56,7 @@ class PhotoListPage extends Component {
     }
 
     return (
-      <div>
+      <div className={styles.map_container}>
         <div className={styles.mainmap} ref="map">Map</div>
       </div>
     );
