@@ -5,9 +5,12 @@
 
 
 .mainmap {
-  margin-top:10px;
-  height: 400px;
-  width: 100%;
+  height: 90vh;
+}
+
+.map_container {
+ width: 100%;
+ height:90%;
 }
 .single-description {
   width: 100%;

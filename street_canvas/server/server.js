@@ -82,6 +82,15 @@ const renderFullPage = (html, initialState) => {
         ${process.env.NODE_ENV === 'production' ? `<link rel='stylesheet' href='${assetsManifest['/app.css']}' />` : ''}
         <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700" rel="stylesheet">
         <link rel="shortcut icon" href="http://res.cloudinary.com/streetcanvas/image/upload/v1491277108/favicon_dvbm6p.ico" type="image/png" />
+        <script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+        <script src="//widget.cloudinary.com/global/all.js" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+      window.CLOUDINARY_OPTIONS = {
+        cloud_name: "streetcanvas",
+        upload_preset: "ivjdpthx"
+      }
+    </script>
         </body>
       </head>
       <body>
