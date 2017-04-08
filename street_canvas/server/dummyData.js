@@ -42,9 +42,6 @@ export default function () {
     const photo12 = new Photo({
       photo_url: 'http://res.cloudinary.com/streetcanvas/image/upload/v1491672322/IMG_1825_duxhfu.jpg',
       description: 'Honey Bears Divisidero and Oak', lat: '37.772882', lng: '-122.438734', cuid: '533treteragh46kjagsgarw535364' });
-    const photo19 = new Photo({
-      photo_url: 'http://res.cloudinary.com/streetcanvas/image/upload/v1491672322/IMG_1825_duxhfu.jpg',
-      description: 'Honey Bears Divisidero and Oak', lat: '37.772882', lng: '-122.438734', cuid: '533treteragh46kjagsgarw535364' });
     const photo13 = new Photo({
       photo_url: 'http://res.cloudinary.com/streetcanvas/image/upload/v1491672324/IMG_1831_ilhqlr.jpg',
       description: 'Bluebird of happiness by the underground stop', lat: '37.775149', lng: '-122.419870', cuid: '533treteasgah6sgarw535364' });
@@ -64,7 +61,7 @@ export default function () {
       photo_url: 'http://res.cloudinary.com/streetcanvas/image/upload/c_scale,q_auto:good,w_980/v1491672373/IMG_20170407_183014_kkbrre.jpg',
       description: 'Side of a Burger Joint', lat: '37.77', lng: '-122.449', cuid: '533tretadfagdghahgdgagkfadgagah' });
 
-    Photo.create([photo1, photo5, photo4, photo3, photo6, photo9, photo10, photo7, photo8, photo9, photo11, photo12, photo13, photo14, photo15, photo16, photo17, photo2, photo18, photo19], (error) => {
+    Photo.create([photo1, photo5, photo4, photo3, photo6, photo9, photo10, photo7, photo8, photo9, photo11, photo12, photo13, photo14, photo15, photo16, photo17, photo2, photo18], (error) => {
       if (!error) {
       }
     });

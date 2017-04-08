@@ -3,6 +3,7 @@
   width: 100%;
   padding-top:70px;
   margin: 0 auto;
+  background-color:#000000;
 }
 @media (max-width: 600px) {
   .container {
