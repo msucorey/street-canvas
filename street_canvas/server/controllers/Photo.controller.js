@@ -37,26 +37,41 @@ export function getPhoto(req, res) {
 // Add photo
 
 export function addPhoto(req, res) {
-  cloudinary.uploader.upload(req.files.image.path, (result) => {
-    const newPhoto = new Photo({
-      photo_url: result.url,
-      lat: req.body.photo.lat,
-      lng: req.body.photo.lng,
-    });
+  const newPhoto = new Photo(req.body.photo);
 
-    if (!req.body.photo.photo_url || !req.body.photo.lat || !req.body.photo.lng) {
-      res.status(403).end();
+  // Let's sanitize inputs
+  newPhoto.photo_url = sanitizeHtml(newPhoto.photo_url);
+  newPhoto.description = sanitizeHtml(newPhoto.description);
+  newPhoto.lat = sanitizeHtml(newPhoto.lat);
+  newPhoto.lng = sanitizeHtml(newPhoto.lng);
+
+  newPhoto.cuid = cuid();
+  newPhoto.save((err, saved) => {
+    if (err) {
+      res.status(500).send(err);
     }
-
-    // Let's sanitize inputs
-    newPhoto.description = sanitizeHtml(newPhoto.description);
-    newPhoto.cuid = cuid();
-    newPhoto.save((err, saved) => {
-      if (err) {
-        res.status(500).send(err);
-      }
-      res.json({ photo: saved });
-      res.redirect(`/photos/${newPhoto.cuid}`);
-    });
+    res.json({ post: saved });
   });
+  // cloudinary.uploader.upload(req.files.image.path, (result) => {
+  //   const newPhoto = new Photo({
+  //     photo_url: result.url,
+  //     lat: req.body.photo.lat,
+  //     lng: req.body.photo.lng,
+  //   });
+  //
+  //   if (!req.body.photo.photo_url || !req.body.photo.lat || !req.body.photo.lng) {
+  //     res.status(403).end();
+  //   }
+  //
+  //   // Let's sanitize inputs
+  //   newPhoto.description = sanitizeHtml(newPhoto.description);
+  //   newPhoto.cuid = cuid();
+  //   newPhoto.save((err, saved) => {
+  //     if (err) {
+  //       res.status(500).send(err);
+  //     }
+  //     res.json({ photo: saved });
+  //     res.redirect(`/photos/${newPhoto.cuid}`);
+  //   });
+  // });
 }
