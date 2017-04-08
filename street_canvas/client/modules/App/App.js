@@ -26,9 +26,9 @@ export class App extends Component {
     const authCookie = cookie.load('mernAuth');
     const loggedIn = authCookie && authCookie.t;
     this.setState({isMounted: true, loggedIn: loggedIn}); // eslint-disable-line
-
   }
-
+  //  cw - keeping this legacy code as a placeholder right now
+  //  to force state changes or add other global toggles
   toggleAddPostSection = () => {
     this.props.dispatch(toggleAddPost());
     this.setState({ isMounted: true, loggedIn: false });
@@ -58,7 +58,7 @@ export class App extends Component {
               },
             ]}
           />
-        <HeaderContainer toggleAddPost={this.toggleAddPostSection} logout={this.logoutUser} loggedIn={this.state.loggedIn} userData="userData"/>
+        <HeaderContainer toggleAddPost={this.toggleAddPostSection} logout={this.logoutUser} />
           <div className={styles.container}>
             {this.props.children}
           </div>

@@ -39,11 +39,6 @@ class Header extends React.Component {
             <Link to="/" >STREET<span>CANVAS</span></Link>
           </h1>
           {button}
-          {
-            true
-              ? <a className={styles['add-post-button']} href="#" onClick={this.props.toggleAddPost}>Add Post</a>
-              : null
-          }
         </div>
       </div>
     );
