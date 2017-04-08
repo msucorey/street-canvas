@@ -24,7 +24,22 @@ class PhotoDetailPage extends React.Component {
 
   componentDidMount() {
     this.photo = getPhoto(this.props.state, this.props.params.cuid);
-    setTimeout(this.setState({ loaded: true }), 20);
+    window.initMap = this.initMap;
+    if (!this.state.loaded) {
+      setTimeout(this.initMap, 20);
+    }
+  }
+
+  initMap() {
+    // set the map to show SF
+    const mapOptions = {
+      center: { lat: 37.7758, lng: -122.435 }, // this is SF
+      zoom: 13,
+      disableDefaultUI: true,
+      zoomControl: true,
+    };
+    this.map = new google.maps.Map(this.refs.map, mapOptions);
+    this.setState({ loaded: true });
   }
 
   render() {
@@ -34,13 +49,21 @@ class PhotoDetailPage extends React.Component {
         <section>
           <img alt="streetart" src={this.photo.photo_url} className={styles['main-photo']} />
           <p className={styles['single-description']}>{this.photo.description}</p>
-          <div ref="map">MAP GOES HERE</div>
         </section>
       );
+    }
+    if (this.state.loaded) {
+      this.marker = new google.maps.Marker({
+        position: { lat: this.photo.lat, lng: this.photo.lng },
+        map: this.map
+      });
     }
     return (
       <div>
         {content}
+        <div className={styles.map_container}>
+          <div className={styles.mainmap} ref="map">Map</div>
+        </div>
       </div>
     );
   }

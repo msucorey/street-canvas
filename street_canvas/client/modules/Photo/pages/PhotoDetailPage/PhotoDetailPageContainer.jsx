@@ -5,7 +5,7 @@ import PhotoDetailPage from './PhotoDetailPage';
 import { fetchPhoto } from '../../PhotoActions';
 
 // Import Selectors
-import { getPhoto } from '../../PhotoReducer';
+// import { getPhoto } from '../../PhotoReducer';
 
 const mapStateToProps = (state) => {
   return {
