@@ -53,6 +53,10 @@
   color: #FFF;
 }
 
+.username {
+  color: white;
+}
+
 .add-post-button {
   display: inline-block;
   color: #FFF;

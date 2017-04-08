@@ -9,14 +9,14 @@ class Header extends React.Component {
 
   constructor(props) {
     super(props);
-    this.register = this.register.bind(this);
-    this.logout = this.logoutUser.bind(this);
+    this.loginUser = this.loginUser.bind(this);
+    this.logoutUser = this.logoutUser.bind(this);
   }
 
-  register = (e) => {
+  loginUser = (e) => {
     e.preventDefault();
     this.props.toggleAddPost();
-    browserHistory.push('/register');
+    browserHistory.push('/login');
   };
 
   logoutUser = (e) => {
@@ -26,8 +26,12 @@ class Header extends React.Component {
   }
 
   render() {
+    let username = null;
+    if (this.props.userData) {
+      username = this.props.userData.username;
+    }
     let button =
-    (<a className={styles['add-post-button']} href="#" onClick={this.register}>Log In</a>);
+    (<a className={styles['add-post-button']} href="#" onClick={this.loginUser}>Log In</a>);
     if (this.props.userData) {
       button = (<a className={styles['add-post-button']} href="#" onClick={this.logoutUser}>Log Out</a>);
     }
@@ -38,6 +42,7 @@ class Header extends React.Component {
           <h1 className={styles['site-title']}>
             <Link to="/" >STREET<span>CANVAS</span></Link>
           </h1>
+          <p className={styles['username']}>`{username}`</p>
           {button}
         </div>
       </div>
