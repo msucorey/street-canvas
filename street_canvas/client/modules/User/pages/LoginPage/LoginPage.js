@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
+import { Link, browserHistory, hashHistory } from 'react-router';
 
 // Import Components
 import LoginForm from '../../components/LoginForm/LoginForm';
@@ -9,7 +10,8 @@ import { loginRequest } from '../../UserActions';
 
 class LoginPage extends Component {
   handleLogin = (username, password) => {
-      this.props.dispatch(loginRequest({ username, password }));
+    this.props.dispatch(loginRequest({ username, password }));
+    browserHistory.push('/');
   };
 
   render() {
