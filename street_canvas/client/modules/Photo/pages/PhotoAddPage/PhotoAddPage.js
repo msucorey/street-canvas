@@ -14,6 +14,11 @@ import { getPhoto } from '../../PhotoReducer';
 
 
 export class PhotoAddPage extends Component {
+
+  componentDidMount() {
+
+  }
+
   addPhoto = () => {
     const descriptionRef = this.refs.description;
     // const titleRef = this.refs.title;
@@ -24,7 +29,20 @@ export class PhotoAddPage extends Component {
     // }
   };
 
+  getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(this.log);
+    } else {
+      console.log('does not support geolocation');
+    }
+  }
+
+  log(position) {
+    console.log(position.coords);
+  }
+
   render() {
+    this.getLocation();
     return (
       <div >
         <div className={styles['add-container']}>
@@ -39,10 +57,12 @@ export class PhotoAddPage extends Component {
       </div>
     );
   }
+
+
 }
 
 PhotoAddPage.propTypes = {
-  addPhoto: PropTypes.func.isRequired,
+  // addPhoto: PropTypes.func.isRequired,
 };
 
 export default PhotoAddPage;
