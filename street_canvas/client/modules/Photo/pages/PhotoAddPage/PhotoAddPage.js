@@ -28,21 +28,21 @@ export class PhotoAddPage extends Component {
     //   nameRef.value = titleRef.value = contentRef.value = '';
     // }
   };
-
-  getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(this.log);
-    } else {
-      console.log('does not support geolocation');
-    }
-  }
-
-  log(position) {
-    console.log(position.coords);
-  }
+  // 
+  // getLocation() {
+  //   if (navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition(this.log);
+  //   } else {
+  //     console.log('does not support geolocation');
+  //   }
+  // }
+  //
+  // log(position) {
+  //   console.log(position.coords);
+  // }
 
   render() {
-    this.getLocation();
+
     return (
       <div >
         <div className={styles['add-container']}>
