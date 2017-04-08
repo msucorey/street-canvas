@@ -4,7 +4,7 @@ import { Route, IndexRoute } from 'react-router';
 import cookie from 'react-cookie';
 import App from './modules/App/App';
 import PhotoDetailPageContainer from './modules/Photo/pages/PhotoDetailPage/PhotoDetailPageContainer';
-import PhotoAddPage from './modules/Photo/pages/PhotoAddPage/PhotoAddPage';
+import PhotoAddPageContainer from './modules/Photo/pages/PhotoAddPage/PhotoAddPageContainer';
 import PhotoGalleryPage from './modules/Photo/pages/PhotoGalleryPage/PhotoGalleryPage';
 import Loading from './modules/Photo/loading';
 
@@ -85,7 +85,7 @@ export default (
     />
     <Route
       path="/add"
-      component={PhotoAddPage}
+      component={PhotoAddPageContainer}
     />
     <Route
       path="/loading"

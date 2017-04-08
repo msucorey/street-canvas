@@ -15,8 +15,9 @@ export function addPhoto(photo) {
 }
 
 export function addPhotoRequest(photo) {
+  console.log(photo);
   return (dispatch) => {
-    return callApi('photos', 'photo', {
+    return callApi('photos', 'post', {
       photo: {
         photo_url: photo.photo_url,
         description: photo.description,
@@ -24,7 +25,7 @@ export function addPhotoRequest(photo) {
         lat: photo.lat,
         lng: photo.lng,
       },
-    }).then(res => dispatch(addPhoto(res.photo)));
+    }).then(res => dispatch(addPhoto(photo)));
   };
 }
 
