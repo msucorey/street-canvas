@@ -6,25 +6,36 @@ import styles from './App.css';
 
 // Import Components
 import Helmet from 'react-helmet';
-import Header from './components/Header/Header';
+import HeaderContainer from './components/Header/HeaderContainer';
 import Footer from './components/Footer/Footer';
 
 
 // Import Actions
 import { toggleAddPost } from './AppActions';
+import { logout } from '../User/UserActions';
+
+import cookie from 'react-cookie';
 
 export class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { isMounted: false };
+    this.state = { isMounted: false, loggedIn: false };
   }
 
   componentDidMount() {
-    this.setState({isMounted: true}); // eslint-disable-line
+    const authCookie = cookie.load('mernAuth');
+    const loggedIn = authCookie && authCookie.t;
+    this.setState({isMounted: true, loggedIn: loggedIn}); // eslint-disable-line
   }
-
+  //  cw - keeping this legacy code as a placeholder right now
+  //  to force state changes or add other global toggles
   toggleAddPostSection = () => {
     this.props.dispatch(toggleAddPost());
+    this.setState({ isMounted: true, loggedIn: false });
+  };
+  logoutUser = () => {
+    this.props.dispatch(logout());
+    this.setState({ isMounted: true, loggedIn: false });
   };
 
   render() {
@@ -47,7 +58,7 @@ export class App extends Component {
               },
             ]}
           />
-          <Header toggleAddPost={this.toggleAddPostSection} />
+        <HeaderContainer toggleAddPost={this.toggleAddPostSection} logout={this.logoutUser} />
           <div className={styles.container}>
             {this.props.children}
           </div>
@@ -67,6 +78,7 @@ App.propTypes = {
 function mapStateToProps(store) {
   return {
     store,
+    userData: store.user.data,
   };
 }
 
