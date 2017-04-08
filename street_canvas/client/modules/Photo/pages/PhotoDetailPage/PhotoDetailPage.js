@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { isEmpty } from 'lodash';
 // import { bindActionCreators } from 'redux';
@@ -13,16 +13,37 @@ import { fetchPhoto } from '../../PhotoActions';
 import { getPhoto } from '../../PhotoReducer';
 
 
-export function PhotoDetailPage(props) {
-  return (
-    <div>
-      <section>
-        <img alt="streetart" src={props.photo.photo_url} className={styles['main-photo']} />
-        <p className={styles['single-description']}>{props.photo.description}</p>
-        <div>MAP GOES HERE</div>
-      </section>
-    </div>
-  );
+class PhotoDetailPage extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.photo = null;
+    this.state = { loaded: false };
+    this.initMap = this.initMap.bind(this);
+  }
+
+  componentDidMount() {
+    this.photo = getPhoto(this.props.state, this.props.params.cuid);
+    setTimeout(this.setState({ loaded: true }), 20);
+  }
+
+  render() {
+    let content = null;
+    if (this.state.loaded) {
+      content = (
+        <section>
+          <img alt="streetart" src={this.photo.photo_url} className={styles['main-photo']} />
+          <p className={styles['single-description']}>{this.photo.description}</p>
+          <div ref="map">MAP GOES HERE</div>
+        </section>
+      );
+    }
+    return (
+      <div>
+        {content}
+      </div>
+    );
+  }
 }
 
 // Actions required to provide data for this component to render in sever side.
@@ -30,20 +51,11 @@ PhotoDetailPage.need = [params => {
   return fetchPhoto(params.cuid);
 }];
 // Retrieve data from store as props
-function mapStateToProps(state, props) {
-  return {
-    photo: getPhoto(state, props.params.cuid),
-  };
-}
+// function mapStateToProps(state, props) {
+//   return {
+//     photo: getPhoto(state, props.params.cuid),
+//   };
+// }
 
-PhotoDetailPage.propTypes = {
-  photo: PropTypes.shape({
-    photo_url: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    cuid: PropTypes.string.isRequired,
-    lng: PropTypes.number.isRequired,
-    lat: PropTypes.number.isRequired,
-  }).isRequired,
-};
 
-export default connect(mapStateToProps)(PhotoDetailPage);
+export default PhotoDetailPage;

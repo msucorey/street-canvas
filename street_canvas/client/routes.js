@@ -3,7 +3,7 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import cookie from 'react-cookie';
 import App from './modules/App/App';
-import PhotoDetailPage from './modules/Photo/pages/PhotoDetailPage/PhotoDetailPage';
+import PhotoDetailPageContainer from './modules/Photo/pages/PhotoDetailPage/PhotoDetailPageContainer';
 import PhotoAddPage from './modules/Photo/pages/PhotoAddPage/PhotoAddPage';
 import PhotoGalleryPage from './modules/Photo/pages/PhotoGalleryPage/PhotoGalleryPage';
 import Loading from './modules/Photo/loading';
@@ -79,7 +79,7 @@ export default (
       path="/photos/:cuid"
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
-          cb(null, require('./modules/Photo/pages/PhotoDetailPage/PhotoDetailPage').default);
+          cb(null, require('./modules/Photo/pages/PhotoDetailPage/PhotoDetailPageContainer').default);
         });
       }}
     />
