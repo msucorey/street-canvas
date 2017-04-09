@@ -3,6 +3,21 @@
   width:100%;
 }
 
+.upload-button {
+  width:100%;
+  background-color: #6705c5;
+  color: #ffffff;
+  height:30px;
+  text-align:center;
+  font-size: 18px;
+  font-weight:300;
+  border-radius: 14px;
+  border:0;
+}
+
+.upload-button:hover {
+  background-color:#1cefff;
+}
 
 .mainmap {
   height: 90vh;
@@ -18,6 +33,15 @@
 }
 
 .map_detail_container {
+ width: 100%;
+ height:30%;
+}
+
+.addmap {
+  height: 20vh;
+}
+
+.map_add_container {
  width: 100%;
  height:30%;
 }
@@ -72,14 +96,22 @@ section {
 
 .add-container {
   margin-top:50px;
-  width:350px;
+  min-width:350px;
+  max-width:600px;
   margin-left:auto;
   margin-right:auto;
   background-color:#ffffff;
   padding: 20px;
   border-radius: 14px;
   padding-bottom:50px;
+  margin-bottom:60px;
 }
+
+.add_desc {
+  width:100%;
+  height: 20vh;
+}
+
 
 .add-container h2 {
   margin-top:20px;
