@@ -36,8 +36,8 @@ class PhotoAddPage extends Component {
     e.preventDefault();
     // alert('adding photo from form');
     this.photo.description = this.refs.description.value;
-    this.photo.lat = this.refs.lat.value;
-    this.photo.lng = this.refs.lng.value;
+    this.photo.lat = parseFloat(this.refs.lat.value);
+    this.photo.lng = parseFloat(this.refs.lng.value);
     this.props.addPhoto(
       this.photo.photo_url,
       this.photo.description,
