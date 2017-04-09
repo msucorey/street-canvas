@@ -1,5 +1,9 @@
 import React from 'react';
 
+
+// Import Style
+import styles from '../../Photo.css';
+
 class UploadButton extends React.Component {
 
   constructor(props) {
@@ -21,8 +25,8 @@ class UploadButton extends React.Component {
 
   render() {
     return (
-      <div className="upload-form">
-        <button onClick={this.upload}>Upload new image!</button>
+      <div className={styles['upload-form']}>
+        <button className={styles['upload-button']} onClick={this.upload}>Upload new image!</button>
       </div>
     );
   }
