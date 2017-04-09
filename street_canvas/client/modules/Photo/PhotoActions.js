@@ -15,7 +15,6 @@ export function addPhoto(photo) {
 }
 
 export function addPhotoRequest(photo) {
-  console.log(photo);
   return (dispatch) => {
     return callApi('photos', 'post', {
       photo: {

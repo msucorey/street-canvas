@@ -19,7 +19,6 @@ export function register(req, res) {
   }
 
   const newUser = new User(req.body.user);
-
   newUser.username = sanitizeHtml(newUser.username);
   newUser.save((err, saved) => {
     if (err) {
