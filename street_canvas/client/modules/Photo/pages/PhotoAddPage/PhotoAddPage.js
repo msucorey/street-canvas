@@ -149,3 +149,16 @@ class PhotoAddPage extends Component {
 }
 
 export default PhotoAddPage;
+
+
+
+// <script type="text/javascript">
+//     window.CLOUDINARY_OPTIONS = {
+//       cloud_name: "streetcanvas",
+//       upload_preset: "ivjdpthx",
+//       max_files: 1,
+//       client_allowed_formats: ['png', 'jpg', 'jpeg'],
+//       stylesheet: ' #cloudinary-overlay.modal {
+//         background-color: rgba(0,0,0,.9);
+//       }'}
+//   </script>
