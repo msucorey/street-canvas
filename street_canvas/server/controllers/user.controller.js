@@ -28,10 +28,14 @@ export function register(req, res) {
         return res.status(500).send({ err: errors.REGISTER_GENERAL_ERROR });
       }
     }
+    const token = jwt.sign({ 'id': newUser._id }, secret.secret, {
+      expiresIn: 31536e3
+    });
     return res.json({
       user: {
         username: saved.username,
-      }
+      },
+      token,
     });
   });
 }
