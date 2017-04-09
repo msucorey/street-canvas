@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import RegisterForm from '../../components/RegisterForm/RegisterForm';
 
 // Import Actions
-import { registerRequest } from '../../UserActions';
+import { registerRequest, loginRequest } from '../../UserActions';
 
 class RegisterPage extends Component {
   handleRegister = (username, password) => {
@@ -14,7 +14,7 @@ class RegisterPage extends Component {
 
   render() {
     return (
-      <RegisterForm register={this.handleRegister} /> 
+      <RegisterForm register={this.handleRegister} />
     );
   }
 }
