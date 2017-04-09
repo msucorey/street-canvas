@@ -88,7 +88,8 @@ const renderFullPage = (html, initialState) => {
   <script type="text/javascript">
       window.CLOUDINARY_OPTIONS = {
         cloud_name: "streetcanvas",
-        upload_preset: "ivjdpthx"
+        upload_preset: "ivjdpthx",
+        stylesheet: '#cloudinary-overlay.modal { background-color: rgba(0,0,0,.9);}'
       }
     </script>
         </body>
