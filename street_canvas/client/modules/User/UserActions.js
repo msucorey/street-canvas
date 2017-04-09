@@ -57,6 +57,8 @@ export function loginSuccess(user, token) {
     }
   );
 
+  setTimeout(function () { browserHistory.push('/'); }, 500);
+
   return {
     type: LOGIN_SUCCESS,
     user,
