@@ -33,7 +33,7 @@ class PhotoDetailPage extends React.Component {
   initMap() {
     // set the map to show SF
     const mapOptions = {
-      center: { lat: 37.7758, lng: -122.435 }, // this is SF
+      center: { lat: this.photo.lat, lng: this.photo.lng }, // this is SF
       zoom: 13,
       disableDefaultUI: true,
       zoomControl: true,
@@ -61,8 +61,8 @@ class PhotoDetailPage extends React.Component {
     return (
       <div>
         {content}
-        <div className={styles.map_container}>
-          <div className={styles.mainmap} ref="map">Map</div>
+        <div className={styles.map_detail_container}>
+          <div className={styles.detailmap} ref="map">Map</div>
         </div>
       </div>
     );
