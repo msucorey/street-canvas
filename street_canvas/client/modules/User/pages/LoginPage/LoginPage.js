@@ -11,7 +11,7 @@ import { loginRequest } from '../../UserActions';
 class LoginPage extends Component {
   handleLogin = (username, password) => {
     this.props.dispatch(loginRequest({ username, password }));
-    browserHistory.push('/');
+    // browserHistory.push('/');
   };
 
   render() {

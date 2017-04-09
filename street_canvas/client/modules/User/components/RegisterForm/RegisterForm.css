@@ -18,6 +18,10 @@
   box-sizing: border-box;
 }
 
+#message-box {
+  color: red;
+  margin-bottom: 4px;
+}
 .form-p {
   font-size: 18px;
   margin-top: 10px;

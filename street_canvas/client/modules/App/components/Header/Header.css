@@ -60,10 +60,15 @@
 .add-post-button {
   display: inline-block;
   color: #FFF;
-  background: #03A9F4;
+  background: #6705c5;
   text-decoration: none;
+  font-size:12px;
   padding: 8px;
-  border-radius: 1000px;
+  border-radius: 8px;
+  text-shadow: 3px 3px 19px rgba(0, 0, 14, 1);
+}
+.add-post-button:hover {
+  background-color:#1cefff;
 }
 
 .language-switcher {

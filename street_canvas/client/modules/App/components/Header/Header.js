@@ -26,14 +26,16 @@ class Header extends React.Component {
   }
 
   render() {
+    // <p className={styles['username']}>`{username}`</p>
+
     let username = null;
     if (this.props.userData) {
       username = this.props.userData.username;
     }
     let button =
-    (<a className={styles['add-post-button']} href="#" onClick={this.loginUser}>Log In</a>);
+    (<a className={styles['add-post-button']} href="#" onClick={this.loginUser}>LOG IN</a>);
     if (this.props.userData) {
-      button = (<a className={styles['add-post-button']} href="#" onClick={this.logoutUser}>Log Out</a>);
+      button = (<a className={styles['add-post-button']} href="#" onClick={this.logoutUser}>{username} | LOG OUT</a>);
     }
 
     return (
@@ -42,7 +44,6 @@ class Header extends React.Component {
           <h1 className={styles['site-title']}>
             <Link to="/" >STREET<span>CANVAS</span></Link>
           </h1>
-          <p className={styles['username']}>`{username}`</p>
           {button}
         </div>
       </div>

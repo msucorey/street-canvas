@@ -15,6 +15,7 @@ export class RegisterForm extends Component {
   };
 
   render() {
+    console.log(this.refs);
     return (
       <div className={styles['form-content']}>
         <h2 className={styles['form-title']}>Sign Up</h2>

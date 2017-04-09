@@ -17,6 +17,7 @@ export class LoginForm extends Component {
       <div className={styles['form-content']} >
         <h2 className={styles['form-title']}>Log In</h2>
         <p className={styles['form-p']}>New users please <Link to="/register">sign up here</Link></p>
+        <p id="message-box" className={styles['message-box']}></p>
         <input className={styles['form-field']} ref="username" placeholder="Email" />
         <input ref="password" className={styles['form-field']} placeholder="Password" type="password" />
         <a className={styles['submit-button']} onClick={this.onLogin}>submit</a>
