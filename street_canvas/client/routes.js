@@ -21,14 +21,14 @@ if (typeof require.ensure !== 'function') {
  */
 if (process.env.NODE_ENV !== 'production') {
   // Require async routes only in development for react-hot-reloader to work.
-  require('./modules/Post/pages/PostListPage/PostListPage');
-  require('./modules/Post/pages/PostDetailPage/PostDetailPage');
+  // require('./modules/Post/pages/PostListPage/PostListPage');
+  // require('./modules/Post/pages/PostDetailPage/PostDetailPageContainer');
 }
 
 const requireLoggedIn = (nextState, replace, cb) => {
   const authCookie = cookie.load('mernAuth');
   if (!authCookie || !authCookie.t) {
-    replace('/');
+    replace('/login');
   }
   cb();
 };
@@ -40,10 +40,6 @@ const requireNotLoggedIn = (nextState, replace, cb) => {
   cb();
 };
 
-const requireAuth = (nextState, replace, cb) => {
-  alert('entered')
-};
-
 // react-router setup with code-splitting
 // More info: http://blog.mxstbr.com/2016/01/react-apps-with-pages/
 export default (
@@ -52,22 +48,6 @@ export default (
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
           cb(null, require('./modules/Photo/pages/PhotoListPage/PhotoListPage').default);
-        });
-      }}
-    />
-    <Route
-      path="/posts"
-      getComponent={(nextState, cb) => {
-        require.ensure([], require => {
-          cb(null, require('./modules/Post/pages/PostListPage/PostListPage').default);
-        });
-      }}
-    />
-    <Route
-      path="/posts/:slug-:cuid"
-      getComponent={(nextState, cb) => {
-        require.ensure([], require => {
-          cb(null, require('./modules/Post/pages/PostDetailPage/PostDetailPage').default);
         });
       }}
     />
@@ -89,12 +69,8 @@ export default (
     />
     <Route
       path="/add"
+      onEnter={requireLoggedIn}
       component={PhotoAddPageContainer}
-    />
-    <Route
-      path="/loading"
-      component={Loading}
-      onEnter={requireAuth}
     />
     <Route
       path="/gallery"
