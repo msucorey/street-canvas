@@ -23,9 +23,15 @@ export function registerFailure(res) {
   // alert('registration failed: '+res.err);
   return {
     type: REGISTER_FAILURE,
-    res,
+    error: res.err,
   };
 }
+
+export function registerFailureMessage(err) {
+  const box = document.getElementById('message-box');
+  box.innerHTML = err;
+}
+
 
 export function registerRequest(userInfo) {
   return (dispatch) => {
@@ -38,7 +44,8 @@ export function registerRequest(userInfo) {
       if (res.user) {
         dispatch(registerSuccess());
       } else {
-        dispatch(registerFailure(res));
+        let text = res.err;
+        registerFailureMessage(text);
       }
     });
   };

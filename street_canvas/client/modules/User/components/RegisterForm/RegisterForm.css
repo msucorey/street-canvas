@@ -18,10 +18,12 @@
   box-sizing: border-box;
 }
 
-#message-box {
+.message-box {
   color: red;
   margin-bottom: 4px;
+  height: 20px;
 }
+
 .form-p {
   font-size: 18px;
   margin-top: 10px;
@@ -33,14 +35,11 @@
  text-decoration: underline;
 }
 
-
-
 .form-title{
   margin-top: 20px;
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 16px;
-
 }
 
 .form-field{

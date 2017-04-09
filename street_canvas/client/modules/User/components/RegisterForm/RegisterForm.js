@@ -15,13 +15,13 @@ export class RegisterForm extends Component {
   };
 
   render() {
-    console.log(this.refs);
     return (
       <div className={styles['form-content']}>
         <h2 className={styles['form-title']}>Sign Up</h2>
         <p className={styles['form-p']}>Existing users please <Link to="/login">log in here</Link></p>
+        <p id="message-box" className={styles['message-box']}></p>
         <input className={styles['form-field']} ref="username" placeholder="Email" />
-        <input className={styles['form-field']} ref="password" type="password" placeholder="Password"  />
+        <input className={styles['form-field']} ref="password" type="password" placeholder="Password" />
         <a className={styles['submit-button']} onClick={this.onRegister}>Submit</a>
       </div>
     );
