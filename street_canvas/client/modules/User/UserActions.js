@@ -98,7 +98,7 @@ export function loginFailure(res) {
 }
 export function logout() {
   cookie.remove('mernAuth', { path: '/' });
-  alert('logged out');
+  // alert('logged out');
   return {
     type: LOGOUT,
   };
