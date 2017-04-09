@@ -40,6 +40,10 @@ const requireNotLoggedIn = (nextState, replace, cb) => {
   cb();
 };
 
+const requireAuth = (nextState, replace, cb) => {
+  alert('entered')
+};
+
 // react-router setup with code-splitting
 // More info: http://blog.mxstbr.com/2016/01/react-apps-with-pages/
 export default (
@@ -90,6 +94,7 @@ export default (
     <Route
       path="/loading"
       component={Loading}
+      onEnter={requireAuth}
     />
     <Route
       path="/gallery"
