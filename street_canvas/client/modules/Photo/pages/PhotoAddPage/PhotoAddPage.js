@@ -112,7 +112,7 @@ class PhotoAddPage extends Component {
   _handleClick(coords) {
     this.photo.lat = coords.lat;
     this.photo.lng = coords.lng;
-    alert('coords set');
+    document.getElementById('location-message').innerHTML = "Location Set";
   }
 
   render() {
@@ -128,12 +128,15 @@ class PhotoAddPage extends Component {
         <div className={styles['add-container']}>
           <h2 >Add a Photo</h2>
           <form action="/photos" method="post" encType="multipart/form-data" >
+          <h3>Step 1:</h3>
             <button onClick={this.upload} className={styles['upload-button']}>UPLOAD IMAGE</button>
+          <h3>Step 2:</h3>
             <div className={styles.map_add_container}>
               <p>Select location by clicking on map:</p>
               <div className={styles.addmap} ref="map">Map</div>
-              <p>some more text</p>
+              <h4 id="location-message" className={styles.map_location}></h4>
             </div>
+          <h3>Step 3:</h3>
             <textarea className={styles.add_desc} ref="description" placeholder="Enter description"></textarea>
             <button className={styles['photo-submit-button']} href="#" onClick={this.addPhoto}>Submit</button>
           </form>
