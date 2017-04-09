@@ -25,7 +25,8 @@ export class App extends Component {
   componentDidMount() {
     const authCookie = cookie.load('mernAuth');
     const loggedIn = authCookie && authCookie.t;
-    this.setState({isMounted: true, loggedIn: loggedIn}); // eslint-disable-line
+    this.setState({isMounted: true, loggedIn: loggedIn});
+    // eslint-disable-line
   }
   //  cw - keeping this legacy code as a placeholder right now
   //  to force state changes or add other global toggles

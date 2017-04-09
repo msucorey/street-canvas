@@ -3,6 +3,7 @@ import { Link, browserHistory } from 'react-router';
 
 // Import Style
 import styles from './Header.css';
+import cookie from 'react-cookie';
 
 // export function Header(props, context) {
 class Header extends React.Component {
@@ -12,6 +13,7 @@ class Header extends React.Component {
     this.loginUser = this.loginUser.bind(this);
     this.logoutUser = this.logoutUser.bind(this);
   }
+
 
   loginUser = (e) => {
     e.preventDefault();
@@ -27,14 +29,14 @@ class Header extends React.Component {
 
   render() {
     // <p className={styles['username']}>`{username}`</p>
-
+    const authCookie = cookie.load('mernAuth');
     let username = null;
-    if (this.props.userData) {
-      username = this.props.userData.username;
+    if (authCookie) {
+      username = authCookie.u;
     }
     let button =
     (<a className={styles['add-post-button']} href="#" onClick={this.loginUser}>LOG IN</a>);
-    if (this.props.userData) {
+    if (authCookie) {
       button = (<a className={styles['add-post-button']} href="#" onClick={this.logoutUser}>{username} | LOG OUT</a>);
     }
 
