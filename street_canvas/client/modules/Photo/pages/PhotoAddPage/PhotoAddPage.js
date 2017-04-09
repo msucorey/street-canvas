@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
-import { connect } from 'react-redux';
 
 // import { bindActionCreators } from 'redux';
 
@@ -26,6 +25,7 @@ class PhotoAddPage extends Component {
       cuid: null,
     };
     this.addPhoto = this.addPhoto.bind(this);
+    this.upload = this.upload.bind(this);
   }
 
   componentDidMount() {
@@ -36,9 +36,8 @@ class PhotoAddPage extends Component {
     e.preventDefault();
     // alert('adding photo from form');
     this.photo.description = this.refs.description.value;
-    this.photo.photo_url = this.refs.photo_url.value;
-    this.photo.lat = this.refs.lat.value;
-    this.photo.lng = this.refs.lng.value;
+    this.photo.lat = parseFloat(this.refs.lat.value);
+    this.photo.lng = parseFloat(this.refs.lng.value);
     this.props.addPhoto(
       this.photo.photo_url,
       this.photo.description,
@@ -62,6 +61,14 @@ class PhotoAddPage extends Component {
   // log(position) {
   //   console.log(position.coords);
   // }
+  upload(e) {
+    e.preventDefault();
+    cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, (error, results) => { console.log(error, results[0]);
+      if (!error) {
+        this.photo.photo_url = results[0].secure_url;
+      }
+    });
+  }
 
   render() {
 
@@ -70,10 +77,8 @@ class PhotoAddPage extends Component {
         <div className={styles['add-container']}>
           <h2 >Add a Photo</h2>
           <form action="/photos" method="post" encType="multipart/form-data" >
-            <p>SELECT LOCATION GOES HERE</p>
-            <input name="image" type="file" />
+            <button onClick={this.upload}>Upload new image!</button>
             <input placeholder="description" className={styles['form-field']} ref="description" /><br />
-            <input placeholder="photo_url" className={styles['form-field']} ref="photo_url" /><br />
             <input placeholder="lat" className={styles['form-field']} ref="lat" /><br />
             <input placeholder="lng" className={styles['form-field']} ref="lng" /><br />
             <button className={styles['photo-submit-button']} href="#" onClick={this.addPhoto}>Submit</button>
