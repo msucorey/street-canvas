@@ -52,9 +52,8 @@ class PhotoListPage extends Component {
   }
 
   initMap() {
-    // set the map to show SF
     const mapOptions = {
-      center: { lat: this.currentLat, lng:this.currentLng }, // this is SF
+      center: { lat: this.currentLat, lng: this.currentLng },
       zoom: 14,
       disableDefaultUI: true,
       zoomControl: true,
