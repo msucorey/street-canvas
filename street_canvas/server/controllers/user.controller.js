@@ -22,6 +22,7 @@ export function register(req, res) {
   newUser.username = sanitizeHtml(newUser.username);
   newUser.save((err, saved) => {
     if (err) {
+      console.log(err.message);
       if (err.message.indexOf('duplicate key error') !== -1) {
         return res.status(500).send({ err: errors.REGISTER_USERNAME_TAKEN });
       } else {

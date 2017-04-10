@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 
 // Import Style
 import styles from './RegisterForm.css';
@@ -10,7 +10,11 @@ export class RegisterForm extends Component {
     const passwordRef = this.refs.password;
     if (usernameRef.value && passwordRef.value) {
       this.props.register(usernameRef.value, passwordRef.value);
-      passwordRef.value = '';
+      setTimeout(() => {
+        this.props.login(usernameRef.value, passwordRef.value);
+        passwordRef.value = '';
+      }, 500);
+      setTimeout(() => browserHistory.push('/'), 1000);
     }
   };
 
@@ -30,6 +34,7 @@ export class RegisterForm extends Component {
 
 RegisterForm.propTypes = {
   register: PropTypes.func.isRequired,
+  login: PropTypes.func.isRequired,
 };
 
 export default RegisterForm;

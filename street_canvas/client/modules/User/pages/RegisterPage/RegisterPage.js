@@ -9,12 +9,16 @@ import { registerRequest, loginRequest } from '../../UserActions';
 
 class RegisterPage extends Component {
   handleRegister = (username, password) => {
-      this.props.dispatch(registerRequest({ username, password }));
+    this.props.dispatch(registerRequest({ username, password }));
+  };
+  handleLogin = (username, password) => {
+    this.props.dispatch(loginRequest({ username, password }));
+    // browserHistory.push('/');
   };
 
   render() {
     return (
-      <RegisterForm register={this.handleRegister} />
+      <RegisterForm register={this.handleRegister} login={this.handleLogin}/>
     );
   }
 }
