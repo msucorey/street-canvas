@@ -21,6 +21,8 @@ class PhotoListPage extends Component {
     super(props);
     this.state = { loaded: false };
     this.initMap = this.initMap.bind(this);
+    this.currentLat = 37.7758;
+    this.currentLng = -122.435;
   }
 
   componentDidMount() {
@@ -31,11 +33,29 @@ class PhotoListPage extends Component {
     }
   }
 
+  getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(this.setCoords, this.error, this.options);
+      console.log('position set');
+    } else {
+      console.log('no geolocation');
+    }
+  }
+
+  setCoords(pos) {
+    this.currentLat = pos.coords.latitude;
+    this.currentLng = pos.coords.longitude;
+  }
+
+  error(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+  }
+
   initMap() {
     // set the map to show SF
     const mapOptions = {
-      center: { lat: 37.7758, lng: -122.435 }, // this is SF
-      zoom: 13,
+      center: { lat: this.currentLat, lng:this.currentLng }, // this is SF
+      zoom: 14,
       disableDefaultUI: true,
       zoomControl: true,
     };
