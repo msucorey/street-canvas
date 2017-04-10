@@ -88,6 +88,8 @@ class PhotoAddPage extends Component {
     e.preventDefault();
     // alert('adding photo from form');
     this.photo.description = this.refs.description.value;
+    this.photo.lat = this.photo.lat || this.currentLat;
+    this.photo.lng = this.photo.lng || this.currentLng;
     this.props.addPhoto(
       this.photo.photo_url,
       this.photo.description,
@@ -97,7 +99,7 @@ class PhotoAddPage extends Component {
     );
     setTimeout(() => (
       browserHistory.push(`/photos/${this.props.photos.data[0].cuid}`)
-    ), 50);
+    ), 500);
   };
 
   upload(e) {
