@@ -14,29 +14,29 @@ import Footer from './components/Footer/Footer';
 import { toggleAddPost } from './AppActions';
 import { logout } from '../User/UserActions';
 
-import cookie from 'react-cookie';
+// import cookie from 'react-cookie';
 
 export class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { isMounted: false, loggedIn: false };
+    this.state = { isMounted: false, logState: false };
   }
 
   componentDidMount() {
-    const authCookie = cookie.load('mernAuth');
-    const loggedIn = authCookie && authCookie.t;
-    this.setState({isMounted: true, loggedIn: loggedIn});
+    // this.setState({ isMounted: true, logState: false});
     // eslint-disable-line
   }
   //  cw - keeping this legacy code as a placeholder right now
   //  to force state changes or add other global toggles
   toggleAddPostSection = () => {
     this.props.dispatch(toggleAddPost());
-    this.setState({ isMounted: true, loggedIn: false });
+    const newState = !this.state.logState;
+    this.setState({ isMounted: true, logState: newState });
   };
   logoutUser = () => {
     this.props.dispatch(logout());
-    this.setState({ isMounted: true, loggedIn: false });
+    const newState = !this.state.logState;
+    this.setState({ isMounted: true, logState: newState });
   };
 
   render() {
