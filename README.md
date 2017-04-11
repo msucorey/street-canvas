@@ -13,7 +13,7 @@ msucorey@gmail.com
 https://github.com/msucorey
 
 
-[StreetCANVAS live link - coming soon](http://streetcanvas.herokuapp.com/)
+[StreetCANVAS live link](http://streetcanvas.herokuapp.com/)
 
 StreetCANVAS is be a mobile-first, single-page, isomorphic JavaScript web app that shows visitors nearby street art (murals, tags, public art, etc.) on a Google map. Users can use StreetCANVAS to make their own walking tours of these locations. They also have the ability to find, photograph, and add new murals, tags, or public art pieces to the StreetCANVAS collection.
 
