@@ -1431,8 +1431,6 @@
 	  to: '/'
 	}, void 0, 'STREET', _jsx('span', {}, void 0, 'CANVAS'));
 	
-	var _ref2 = _jsx('h5', {}, void 0, 'button');
-	
 	var Header = function (_React$Component) {
 	  _inherits(Header, _React$Component);
 	
@@ -1467,11 +1465,18 @@
 	      if (authCookie) {
 	        username = authCookie.u;
 	      }
-	      // let button =
-	      // (<a className={styles['add-post-button']} href="#" onClick={this.loginUser}>LOG IN</a>);
-	      // if (authCookie) {
-	      //   button = (<a className={styles['add-post-button']} href="#" onClick={this.logoutUser}>{username} | LOG OUT</a>);
-	      // }
+	      var button = _jsx('a', {
+	        className: _Header2.default['add-post-button'],
+	        href: '#',
+	        onClick: this.loginUser
+	      }, void 0, 'LOG IN');
+	      if (authCookie) {
+	        button = _jsx('a', {
+	          className: _Header2.default['add-post-button'],
+	          href: '#',
+	          onClick: this.logoutUser
+	        }, void 0, username, ' | LOG OUT');
+	      }
 	
 	      return _jsx('div', {
 	        className: _Header2.default.header
@@ -1479,7 +1484,7 @@
 	        className: _Header2.default.content
 	      }, void 0, _jsx('h1', {
 	        className: _Header2.default['site-title']
-	      }, void 0, _ref), _ref2));
+	      }, void 0, _ref), _jsx('h5', {}, void 0, button)));
 	    }
 	  }]);
 	
