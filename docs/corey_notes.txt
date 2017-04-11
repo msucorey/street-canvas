@@ -33,5 +33,5 @@ When including the google script tag, be sure to put it above yield and remove t
     ]}
   />
 
-            <HeaderContainer toggleAddPost={this.toggleAddPostSection} logout={this.logoutUser} />
+
                       <Footer />

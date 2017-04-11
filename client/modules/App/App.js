@@ -44,7 +44,7 @@ class App extends React.Component {
       <div>
 
         <div>
-
+          <HeaderContainer toggleAddPost={this.toggleAddPostSection} logout={this.logoutUser} />
           <div className={styles.container}>
             children
           </div>

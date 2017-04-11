@@ -1228,7 +1228,10 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      return _jsx('div', {}, void 0, _jsx('div', {}, void 0, _jsx('div', {
+	      return _jsx('div', {}, void 0, _jsx('div', {}, void 0, _jsx(_HeaderContainer2.default, {
+	        toggleAddPost: this.toggleAddPostSection,
+	        logout: this.logoutUser
+	      }), _jsx('div', {
 	        className: _App2.default.container
 	      }, void 0, 'children')));
 	    }
