@@ -61,7 +61,7 @@ export class App extends Component {
           />
         <HeaderContainer toggleAddPost={this.toggleAddPostSection} logout={this.logoutUser} />
           <div className={styles.container}>
-            {this.props.children}
+            children
           </div>
           <Footer />
         </div>
