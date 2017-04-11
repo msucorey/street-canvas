@@ -6,7 +6,7 @@ import styles from './App.css';
 
 // Import Components
 import Helmet from 'react-helmet';
-import HeaderContainer from './components/Header/HeaderContainer';
+import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
 
@@ -44,7 +44,7 @@ class App extends React.Component {
       <div>
 
         <div>
-          <HeaderContainer toggleAddPost={this.toggleAddPostSection} logout={this.logoutUser} />
+          <Header toggleAddPost={this.toggleAddPostSection} logout={this.logoutUser} />
           <div className={styles.container}>
             {this.props.children}
           </div>

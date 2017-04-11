@@ -37,7 +37,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 59);
+/******/ 	return __webpack_require__(__webpack_require__.s = 58);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -394,7 +394,7 @@
 	exports.API_URL = undefined;
 	exports.default = callApi;
 	
-	var _isomorphicFetch = __webpack_require__(63);
+	var _isomorphicFetch = __webpack_require__(62);
 	
 	var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);
 	
@@ -600,31 +600,31 @@
 	
 	var _reactCookie2 = _interopRequireDefault(_reactCookie);
 	
-	var _App = __webpack_require__(36);
+	var _App = __webpack_require__(35);
 	
 	var _App2 = _interopRequireDefault(_App);
 	
-	var _PhotoDetailPageContainer = __webpack_require__(35);
+	var _PhotoDetailPageContainer = __webpack_require__(34);
 	
 	var _PhotoDetailPageContainer2 = _interopRequireDefault(_PhotoDetailPageContainer);
 	
-	var _PhotoAddPageContainer = __webpack_require__(34);
+	var _PhotoAddPageContainer = __webpack_require__(33);
 	
 	var _PhotoAddPageContainer2 = _interopRequireDefault(_PhotoAddPageContainer);
 	
-	var _PhotoGalleryPage = __webpack_require__(44);
+	var _PhotoGalleryPage = __webpack_require__(43);
 	
 	var _PhotoGalleryPage2 = _interopRequireDefault(_PhotoGalleryPage);
 	
-	var _LoginPage = __webpack_require__(51);
+	var _LoginPage = __webpack_require__(50);
 	
 	var _LoginPage2 = _interopRequireDefault(_LoginPage);
 	
-	var _PhotoListPage = __webpack_require__(45);
+	var _PhotoListPage = __webpack_require__(44);
 	
 	var _PhotoListPage2 = _interopRequireDefault(_PhotoListPage);
 	
-	var _RegisterPage = __webpack_require__(52);
+	var _RegisterPage = __webpack_require__(51);
 	
 	var _RegisterPage2 = _interopRequireDefault(_RegisterPage);
 	
@@ -691,15 +691,15 @@
 	
 	var _redux = __webpack_require__(19);
 	
-	var _reduxThunk = __webpack_require__(72);
+	var _reduxThunk = __webpack_require__(71);
 	
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 	
-	var _DevTools = __webpack_require__(38);
+	var _DevTools = __webpack_require__(37);
 	
 	var _DevTools2 = _interopRequireDefault(_DevTools);
 	
-	var _reducers = __webpack_require__(53);
+	var _reducers = __webpack_require__(52);
 	
 	var _reducers2 = _interopRequireDefault(_reducers);
 	
@@ -848,15 +848,15 @@
 	
 	var _express = __webpack_require__(11);
 	
-	var _post = __webpack_require__(55);
+	var _post = __webpack_require__(54);
 	
 	var PostController = _interopRequireWildcard(_post);
 	
-	var _user = __webpack_require__(56);
+	var _user = __webpack_require__(55);
 	
 	var UserController = _interopRequireWildcard(_user);
 	
-	var _Photo = __webpack_require__(54);
+	var _Photo = __webpack_require__(53);
 	
 	var PhotoController = _interopRequireWildcard(_Photo);
 	
@@ -906,7 +906,7 @@
 	});
 	exports.fetchComponentData = fetchComponentData;
 	
-	var _promiseUtils = __webpack_require__(60);
+	var _promiseUtils = __webpack_require__(59);
 	
 	function fetchComponentData(store, components, params) {
 	  var needs = components.reduce(function (prev, current) {
@@ -929,9 +929,9 @@
 	/* WEBPACK VAR INJECTION */(function(__dirname) {'use strict';
 	
 	var webpack = __webpack_require__(13);
-	var cssnext = __webpack_require__(66);
-	var postcssFocus = __webpack_require__(67);
-	var postcssReporter = __webpack_require__(68);
+	var cssnext = __webpack_require__(65);
+	var postcssFocus = __webpack_require__(66);
+	var postcssReporter = __webpack_require__(67);
 	
 	module.exports = {
 	  devtool: 'cheap-module-eval-source-map',
@@ -1045,38 +1045,7 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_redux__ = __webpack_require__(2);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_redux___default = __WEBPACK_IMPORTED_MODULE_0_react_redux__ && __WEBPACK_IMPORTED_MODULE_0_react_redux__.__esModule ? function() { return __WEBPACK_IMPORTED_MODULE_0_react_redux__['default'] } : function() { return __WEBPACK_IMPORTED_MODULE_0_react_redux__; }
 	/* harmony import */ Object.defineProperty(__WEBPACK_IMPORTED_MODULE_0_react_redux___default, 'a', { get: __WEBPACK_IMPORTED_MODULE_0_react_redux___default });
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__header__ = __webpack_require__(40);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__header___default = __WEBPACK_IMPORTED_MODULE_1__header__ && __WEBPACK_IMPORTED_MODULE_1__header__.__esModule ? function() { return __WEBPACK_IMPORTED_MODULE_1__header__['default'] } : function() { return __WEBPACK_IMPORTED_MODULE_1__header__; }
-	/* harmony import */ Object.defineProperty(__WEBPACK_IMPORTED_MODULE_1__header___default, 'a', { get: __WEBPACK_IMPORTED_MODULE_1__header___default });
-	
-	
-	
-	const mapStateToProps = (state) => {
-	  return {
-	    userData: state.user.data,
-	  };
-	};
-	
-	// const mapDispatchToProps = (dispatch) => {
-	//   return {
-	//
-	//   };
-	// };
-	
-	/* harmony default export */ exports["default"] = /* harmony import */__WEBPACK_IMPORTED_MODULE_0_react_redux__["connect"].call(undefined, mapStateToProps,
-	  null
-	)(/* harmony import */__WEBPACK_IMPORTED_MODULE_1__header___default.a);
-
-
-/***/ },
-/* 34 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_redux__ = __webpack_require__(2);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_redux___default = __WEBPACK_IMPORTED_MODULE_0_react_redux__ && __WEBPACK_IMPORTED_MODULE_0_react_redux__.__esModule ? function() { return __WEBPACK_IMPORTED_MODULE_0_react_redux__['default'] } : function() { return __WEBPACK_IMPORTED_MODULE_0_react_redux__; }
-	/* harmony import */ Object.defineProperty(__WEBPACK_IMPORTED_MODULE_0_react_redux___default, 'a', { get: __WEBPACK_IMPORTED_MODULE_0_react_redux___default });
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PhotoAddPage__ = __webpack_require__(42);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PhotoAddPage__ = __webpack_require__(41);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PhotoAddPage___default = __WEBPACK_IMPORTED_MODULE_1__PhotoAddPage__ && __WEBPACK_IMPORTED_MODULE_1__PhotoAddPage__.__esModule ? function() { return __WEBPACK_IMPORTED_MODULE_1__PhotoAddPage__['default'] } : function() { return __WEBPACK_IMPORTED_MODULE_1__PhotoAddPage__; }
 	/* harmony import */ Object.defineProperty(__WEBPACK_IMPORTED_MODULE_1__PhotoAddPage___default, 'a', { get: __WEBPACK_IMPORTED_MODULE_1__PhotoAddPage___default });
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__PhotoActions__ = __webpack_require__(3);
@@ -1109,14 +1078,14 @@
 
 
 /***/ },
-/* 35 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_redux__ = __webpack_require__(2);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_redux___default = __WEBPACK_IMPORTED_MODULE_0_react_redux__ && __WEBPACK_IMPORTED_MODULE_0_react_redux__.__esModule ? function() { return __WEBPACK_IMPORTED_MODULE_0_react_redux__['default'] } : function() { return __WEBPACK_IMPORTED_MODULE_0_react_redux__; }
 	/* harmony import */ Object.defineProperty(__WEBPACK_IMPORTED_MODULE_0_react_redux___default, 'a', { get: __WEBPACK_IMPORTED_MODULE_0_react_redux___default });
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PhotoDetailPage__ = __webpack_require__(43);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PhotoDetailPage__ = __webpack_require__(42);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PhotoDetailPage___default = __WEBPACK_IMPORTED_MODULE_1__PhotoDetailPage__ && __WEBPACK_IMPORTED_MODULE_1__PhotoDetailPage__.__esModule ? function() { return __WEBPACK_IMPORTED_MODULE_1__PhotoDetailPage__['default'] } : function() { return __WEBPACK_IMPORTED_MODULE_1__PhotoDetailPage__; }
 	/* harmony import */ Object.defineProperty(__WEBPACK_IMPORTED_MODULE_1__PhotoDetailPage___default, 'a', { get: __WEBPACK_IMPORTED_MODULE_1__PhotoDetailPage___default });
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__PhotoActions__ = __webpack_require__(3);
@@ -1149,7 +1118,7 @@
 
 
 /***/ },
-/* 36 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1179,11 +1148,11 @@
 	
 	var _reactHelmet2 = _interopRequireDefault(_reactHelmet);
 	
-	var _HeaderContainer = __webpack_require__(33);
+	var _Header = __webpack_require__(39);
 	
-	var _HeaderContainer2 = _interopRequireDefault(_HeaderContainer);
+	var _Header2 = _interopRequireDefault(_Header);
 	
-	var _Footer = __webpack_require__(39);
+	var _Footer = __webpack_require__(38);
 	
 	var _Footer2 = _interopRequireDefault(_Footer);
 	
@@ -1248,7 +1217,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      return _jsx('div', {}, void 0, _jsx('div', {}, void 0, _jsx(_HeaderContainer2.default, {
+	      return _jsx('div', {}, void 0, _jsx('div', {}, void 0, _jsx(_Header2.default, {
 	        toggleAddPost: this.toggleAddPostSection,
 	        logout: this.logoutUser
 	      }), _jsx('div', {
@@ -1271,7 +1240,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(App);
 
 /***/ },
-/* 37 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1316,7 +1285,7 @@
 	exports.default = AppReducer;
 
 /***/ },
-/* 38 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1332,13 +1301,13 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reduxDevtools = __webpack_require__(69);
+	var _reduxDevtools = __webpack_require__(68);
 	
-	var _reduxDevtoolsLogMonitor = __webpack_require__(71);
+	var _reduxDevtoolsLogMonitor = __webpack_require__(70);
 	
 	var _reduxDevtoolsLogMonitor2 = _interopRequireDefault(_reduxDevtoolsLogMonitor);
 	
-	var _reduxDevtoolsDockMonitor = __webpack_require__(70);
+	var _reduxDevtoolsDockMonitor = __webpack_require__(69);
 	
 	var _reduxDevtoolsDockMonitor2 = _interopRequireDefault(_reduxDevtoolsDockMonitor);
 	
@@ -1350,7 +1319,7 @@
 	}, void 0, _jsx(_reduxDevtoolsLogMonitor2.default, {})));
 
 /***/ },
-/* 39 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1410,7 +1379,7 @@
 	exports.default = Footer;
 
 /***/ },
-/* 40 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1520,7 +1489,7 @@
 	exports.default = Header;
 
 /***/ },
-/* 41 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1580,7 +1549,7 @@
 	exports.default = Loading;
 
 /***/ },
-/* 42 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1827,7 +1796,7 @@
 	//   </script>
 
 /***/ },
-/* 43 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1980,7 +1949,7 @@
 	exports.default = PhotoDetailPage;
 
 /***/ },
-/* 44 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -2004,7 +1973,7 @@
 	
 	var _reactRouter = __webpack_require__(1);
 	
-	var _loading = __webpack_require__(41);
+	var _loading = __webpack_require__(40);
 	
 	var _loading2 = _interopRequireDefault(_loading);
 	
@@ -2107,7 +2076,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(PhotoGalleryPage);
 
 /***/ },
-/* 45 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -2286,7 +2255,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(PhotoListPage);
 
 /***/ },
-/* 46 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -2376,7 +2345,7 @@
 	}
 
 /***/ },
-/* 47 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -2387,7 +2356,7 @@
 	});
 	exports.getPost = exports.getPosts = undefined;
 	
-	var _PostActions = __webpack_require__(46);
+	var _PostActions = __webpack_require__(45);
 	
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 	
@@ -2439,7 +2408,7 @@
 	exports.default = PostReducer;
 
 /***/ },
-/* 48 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -2510,7 +2479,7 @@
 	exports.default = UserReducer;
 
 /***/ },
-/* 49 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -2605,7 +2574,7 @@
 	exports.default = LoginForm;
 
 /***/ },
-/* 50 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -2709,7 +2678,7 @@
 	exports.default = RegisterForm;
 
 /***/ },
-/* 51 */
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -2731,7 +2700,7 @@
 	
 	var _reactRouter = __webpack_require__(1);
 	
-	var _LoginForm = __webpack_require__(49);
+	var _LoginForm = __webpack_require__(48);
 	
 	var _LoginForm2 = _interopRequireDefault(_LoginForm);
 	
@@ -2793,7 +2762,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(LoginPage);
 
 /***/ },
-/* 52 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -2813,7 +2782,7 @@
 	
 	var _reactRedux = __webpack_require__(2);
 	
-	var _RegisterForm = __webpack_require__(50);
+	var _RegisterForm = __webpack_require__(49);
 	
 	var _RegisterForm2 = _interopRequireDefault(_RegisterForm);
 	
@@ -2878,7 +2847,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(RegisterPage);
 
 /***/ },
-/* 53 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -2890,15 +2859,15 @@
 	
 	var _redux = __webpack_require__(19);
 	
-	var _AppReducer = __webpack_require__(37);
+	var _AppReducer = __webpack_require__(36);
 	
 	var _AppReducer2 = _interopRequireDefault(_AppReducer);
 	
-	var _PostReducer = __webpack_require__(47);
+	var _PostReducer = __webpack_require__(46);
 	
 	var _PostReducer2 = _interopRequireDefault(_PostReducer);
 	
-	var _UserReducer = __webpack_require__(48);
+	var _UserReducer = __webpack_require__(47);
 	
 	var _UserReducer2 = _interopRequireDefault(_UserReducer);
 	
@@ -2922,7 +2891,7 @@
 	     */
 
 /***/ },
-/* 54 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -3022,7 +2991,7 @@
 	}
 
 /***/ },
-/* 55 */
+/* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -3044,7 +3013,7 @@
 	
 	var _cuid2 = _interopRequireDefault(_cuid);
 	
-	var _limax = __webpack_require__(65);
+	var _limax = __webpack_require__(64);
 	
 	var _limax2 = _interopRequireDefault(_limax);
 	
@@ -3131,7 +3100,7 @@
 	}
 
 /***/ },
-/* 56 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -3144,19 +3113,19 @@
 	exports.login = login;
 	exports.updateUserInfo = updateUserInfo;
 	
-	var _user = __webpack_require__(57);
+	var _user = __webpack_require__(56);
 	
 	var _user2 = _interopRequireDefault(_user);
 	
-	var _secret = __webpack_require__(58);
+	var _secret = __webpack_require__(57);
 	
 	var _secret2 = _interopRequireDefault(_secret);
 	
-	var _crypto = __webpack_require__(62);
+	var _crypto = __webpack_require__(61);
 	
 	var _crypto2 = _interopRequireDefault(_crypto);
 	
-	var _jsonwebtoken = __webpack_require__(64);
+	var _jsonwebtoken = __webpack_require__(63);
 	
 	var _jsonwebtoken2 = _interopRequireDefault(_jsonwebtoken);
 	
@@ -3267,7 +3236,7 @@
 	}
 
 /***/ },
-/* 57 */
+/* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -3281,7 +3250,7 @@
 	
 	var _mongoose2 = _interopRequireDefault(_mongoose);
 	
-	var _bcrypt = __webpack_require__(61);
+	var _bcrypt = __webpack_require__(60);
 	
 	var _bcrypt2 = _interopRequireDefault(_bcrypt);
 	
@@ -3331,7 +3300,7 @@
 	exports.default = _mongoose2.default.model('User', UserSchema);
 
 /***/ },
-/* 58 */
+/* 57 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -3342,7 +3311,7 @@
 	};
 
 /***/ },
-/* 59 */
+/* 58 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -3536,7 +3505,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, "server"))
 
 /***/ },
-/* 60 */
+/* 59 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -3567,73 +3536,73 @@
 	}
 
 /***/ },
-/* 61 */
+/* 60 */
 /***/ function(module, exports) {
 
 	module.exports = require("bcrypt");
 
 /***/ },
-/* 62 */
+/* 61 */
 /***/ function(module, exports) {
 
 	module.exports = require("crypto");
 
 /***/ },
-/* 63 */
+/* 62 */
 /***/ function(module, exports) {
 
 	module.exports = require("isomorphic-fetch");
 
 /***/ },
-/* 64 */
+/* 63 */
 /***/ function(module, exports) {
 
 	module.exports = require("jsonwebtoken");
 
 /***/ },
-/* 65 */
+/* 64 */
 /***/ function(module, exports) {
 
 	module.exports = require("limax");
 
 /***/ },
-/* 66 */
+/* 65 */
 /***/ function(module, exports) {
 
 	module.exports = require("postcss-cssnext");
 
 /***/ },
-/* 67 */
+/* 66 */
 /***/ function(module, exports) {
 
 	module.exports = require("postcss-focus");
 
 /***/ },
-/* 68 */
+/* 67 */
 /***/ function(module, exports) {
 
 	module.exports = require("postcss-reporter");
 
 /***/ },
-/* 69 */
+/* 68 */
 /***/ function(module, exports) {
 
 	module.exports = require("redux-devtools");
 
 /***/ },
-/* 70 */
+/* 69 */
 /***/ function(module, exports) {
 
 	module.exports = require("redux-devtools-dock-monitor");
 
 /***/ },
-/* 71 */
+/* 70 */
 /***/ function(module, exports) {
 
 	module.exports = require("redux-devtools-log-monitor");
 
 /***/ },
-/* 72 */
+/* 71 */
 /***/ function(module, exports) {
 
 	module.exports = require("redux-thunk");
