@@ -1,6 +1,7 @@
 ## Street Canvas
 ## Find Street Art Near You!
 ![logo](http://res.cloudinary.com/streetcanvas/image/upload/v1491274037/street_canvas_logo_banner_haafy3.jpg)
+
 **Team**:
 
 **Brent Gummow**
