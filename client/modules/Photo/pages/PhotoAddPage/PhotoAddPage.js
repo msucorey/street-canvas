@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { browserHistory } from 'react-router';
 
 // import { bindActionCreators } from 'redux';
@@ -18,7 +18,7 @@ const _getCoordsObj = latLng => ({
 });
 
 
-class PhotoAddPage extends Component {
+class PhotoAddPage extends React.Component {
 
   constructor(props) {
     super(props);
