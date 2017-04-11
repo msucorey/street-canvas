@@ -79,7 +79,7 @@ const renderFullPage = (html, initialState) => {
         ${head.link.toString()}
         ${head.script.toString()}
 
-        ${process.env.NODE_ENV === 'production' ? `<link rel='stylesheet' href='${assetsManifest['/app.css']}' />` : ''}
+        ${process.env.NODE_ENV === 'production' ? `<link rel='stylesheet' href='${assetsManifest['/main.css']}' />` : ''}
         <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700" rel="stylesheet">
         <link rel="shortcut icon" href="http://res.cloudinary.com/streetcanvas/image/upload/v1491277108/favicon_dvbm6p.ico" type="image/png" />
         <script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
@@ -104,7 +104,7 @@ const renderFullPage = (html, initialState) => {
           //]]>` : ''}
         </script>
         <script src='${process.env.NODE_ENV === 'production' ? assetsManifest['/vendor.js'] : '/vendor.js'}'></script>
-        <script src='${process.env.NODE_ENV === 'production' ? assetsManifest['/app.js'] : '/app.js'}'></script>
+        <script src='${process.env.NODE_ENV === 'production' ? assetsManifest['/main.js'] : '/app.js'}'></script>
         <script
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3xkNlmWAK_4v52ewKZbnUoifMcYAxIy8"></script>
 
