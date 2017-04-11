@@ -36,5 +36,24 @@ const requireNotLoggedIn = (nextState, replace, cb) => {
 // More info: http://blog.mxstbr.com/2016/01/react-apps-with-pages/
 export default (
   <Route path="/" component={App}>
+    <IndexRoute component={PhotoListPage} />
+    <Route
+      path="/photos/:cuid" component={PhotoDetailPageContainer}
+    />
+    <Route
+      path="/add"
+      onEnter={requireLoggedIn}
+      component={PhotoAddPageContainer}
+    />
+    <Route
+      path="/gallery"
+      component={PhotoGalleryPage}
+    />
+    <Route
+      path="/login" component={LoginPage}
+    />
+    <Route
+      path="/register" component={RegisterPage}
+    />
   </Route>
 );

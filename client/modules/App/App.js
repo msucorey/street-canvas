@@ -46,7 +46,7 @@ class App extends React.Component {
         <div>
 
           <div className={styles.container}>
-            children
+            {this.props.children}
           </div>
           <Footer />
         </div>
@@ -56,6 +56,7 @@ class App extends React.Component {
 }
 
 App.propTypes = {
+  children: PropTypes.object.isRequired,
   dispatch: PropTypes.func.isRequired,
 };
 

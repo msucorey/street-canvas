@@ -657,7 +657,25 @@
 	exports.default = _jsx(_reactRouter.Route, {
 	  path: '/',
 	  component: _App2.default
-	}, void 0);
+	}, void 0, _jsx(_reactRouter.IndexRoute, {
+	  component: _PhotoListPage2.default
+	}), _jsx(_reactRouter.Route, {
+	  path: '/photos/:cuid',
+	  component: _PhotoDetailPageContainer2.default
+	}), _jsx(_reactRouter.Route, {
+	  path: '/add',
+	  onEnter: requireLoggedIn,
+	  component: _PhotoAddPageContainer2.default
+	}), _jsx(_reactRouter.Route, {
+	  path: '/gallery',
+	  component: _PhotoGalleryPage2.default
+	}), _jsx(_reactRouter.Route, {
+	  path: '/login',
+	  component: _LoginPage2.default
+	}), _jsx(_reactRouter.Route, {
+	  path: '/register',
+	  component: _RegisterPage2.default
+	}));
 
 /***/ },
 /* 21 */
@@ -1232,7 +1250,7 @@
 	    value: function render() {
 	      return _jsx('div', {}, void 0, _jsx('div', {}, void 0, _jsx('div', {
 	        className: _App2.default.container
-	      }, void 0, 'children'), _ref));
+	      }, void 0, this.props.children), _ref));
 	    }
 	  }]);
 	
