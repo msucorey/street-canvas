@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 // Import Style
@@ -16,7 +16,7 @@ import { logout } from '../User/UserActions';
 
 // import cookie from 'react-cookie';
 
-export class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isMounted: false, logState: false };
