@@ -7,7 +7,7 @@ import PhotoDetailPageContainer from './modules/Photo/pages/PhotoDetailPage/Phot
 import PhotoAddPageContainer from './modules/Photo/pages/PhotoAddPage/PhotoAddPageContainer';
 import PhotoGalleryPage from './modules/Photo/pages/PhotoGalleryPage/PhotoGalleryPage';
 import LoginPage from './modules/User/pages/LoginPage/LoginPage';
-import PhotoListPage from './modules/Photo/pages/PhotoGalleryPage/PhotoListPage';
+import PhotoListPage from './modules/Photo/pages/PhotoListPage/PhotoListPage';
 import RegisterPage from './modules/User/pages/RegisterPage/RegisterPage';
 
 // require.ensure polyfill for node
