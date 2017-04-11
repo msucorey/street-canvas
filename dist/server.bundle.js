@@ -1192,6 +1192,8 @@
 	
 	// import cookie from 'react-cookie';
 	
+	var _ref = _jsx(_Footer2.default, {});
+	
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
 	
@@ -1228,12 +1230,9 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      return _jsx('div', {}, void 0, _jsx('div', {}, void 0, _jsx(_HeaderContainer2.default, {
-	        toggleAddPost: this.toggleAddPostSection,
-	        logout: this.logoutUser
-	      }), _jsx('div', {
+	      return _jsx('div', {}, void 0, _jsx('div', {}, void 0, _jsx('div', {
 	        className: _App2.default.container
-	      }, void 0, 'children')));
+	      }, void 0, 'children'), _ref));
 	    }
 	  }]);
 	
