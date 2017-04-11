@@ -95,7 +95,7 @@ const renderFullPage = (html, initialState) => {
         </body>
       </head>
       <body>
-        <p>straight html page</p>
+        <div id="root">${html}</div>
         <script>
           window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
           ${process.env.NODE_ENV === 'production' ?
