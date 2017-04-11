@@ -39,7 +39,7 @@ class App extends React.Component {
     this.setState({ isMounted: true, logState: newState });
   };
 
-  renderM() {
+  render() {
     return (
       <div>
 
