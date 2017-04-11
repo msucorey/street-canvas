@@ -44,21 +44,6 @@ export class App extends Component {
       <div>
 
         <div>
-          <Helmet
-            title="StreetCANVAS: Find Street Art Near You!"
-            titleTemplate="%s - Blog App"
-            meta={[
-              { charset: 'utf-8' },
-              {
-                'http-equiv': 'X-UA-Compatible',
-                content: 'IE=edge',
-              },
-              {
-                name: 'viewport',
-                content: 'width=device-width, initial-scale=1',
-              },
-            ]}
-          />
         <HeaderContainer toggleAddPost={this.toggleAddPostSection} logout={this.logoutUser} />
           <div className={styles.container}>
             {this.props.children}
