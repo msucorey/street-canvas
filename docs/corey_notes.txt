@@ -32,3 +32,5 @@ When including the google script tag, be sure to put it above yield and remove t
       },
     ]}
   />
+
+  <div id="root">${html}</div>
