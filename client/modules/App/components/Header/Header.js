@@ -34,11 +34,11 @@ class Header extends React.Component {
     if (authCookie) {
       username = authCookie.u;
     }
-    let button =
-    (<a className={styles['add-post-button']} href="#" onClick={this.loginUser}>LOG IN</a>);
-    if (authCookie) {
-      button = (<a className={styles['add-post-button']} href="#" onClick={this.logoutUser}>{username} | LOG OUT</a>);
-    }
+    // let button =
+    // (<a className={styles['add-post-button']} href="#" onClick={this.loginUser}>LOG IN</a>);
+    // if (authCookie) {
+    //   button = (<a className={styles['add-post-button']} href="#" onClick={this.logoutUser}>{username} | LOG OUT</a>);
+    // }
 
     return (
       <div className={styles.header}>
@@ -46,7 +46,7 @@ class Header extends React.Component {
           <h1 className={styles['site-title']}>
             <Link to="/" >STREET<span>CANVAS</span></Link>
           </h1>
-          {button}
+          <h5>button</h5>
         </div>
       </div>
     );
