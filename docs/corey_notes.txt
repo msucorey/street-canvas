@@ -17,4 +17,5 @@ When including the google script tag, be sure to put it above yield and remove t
   // wrap the mapDOMNode in a Google Map
   this.map = new google.maps.Map(this.mapNode, mapOptions);
 
-              {this.props.children}
+        <HeaderContainer toggleAddPost={this.toggleAddPostSection} logout={this.logoutUser} />
+          <Footer />
