@@ -1708,6 +1708,8 @@
 	    value: function setCoords(pos) {
 	      this.photo.lat = pos.coords.latitude;
 	      this.photo.lng = pos.coords.longitude;
+	      this.currentLat = pos.coords.latitude;
+	      this.currentLng = pos.coords.longitude;
 	    }
 	  }, {
 	    key: 'error',
