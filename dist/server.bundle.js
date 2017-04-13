@@ -1672,8 +1672,8 @@
 	    _this._handleClick = _this._handleClick.bind(_this);
 	    _this.getLocation = _this.getLocation.bind(_this);
 	    _this.setCoords = _this.setCoords.bind(_this);
-	    // this.currentLat = 37.7758;
-	    // this.currentLng = -122.435;
+	    _this.currentLat = 37.7758;
+	    _this.currentLng = -122.435;
 	    _this.options = {
 	      enableHighAccuracy: true,
 	      timeout: 5000,
@@ -1718,7 +1718,7 @@
 	      // set the map to show SF
 	      this.getLocation();
 	      var mapOptions = {
-	        center: { lat: this.photo.lat, lng: this.currentLng }, // this is SF
+	        center: { lat: this.currentLat, lng: this.currentLng }, // this is SF
 	        zoom: 15,
 	        disableDefaultUI: true,
 	        zoomControl: true

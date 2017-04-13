@@ -30,8 +30,8 @@ class PhotoAddPage extends React.Component {
     this._handleClick = this._handleClick.bind(this);
     this.getLocation = this.getLocation.bind(this);
     this.setCoords = this.setCoords.bind(this);
-    // this.currentLat = 37.7758;
-    // this.currentLng = -122.435;
+    this.currentLat = 37.7758;
+    this.currentLng = -122.435;
     this.options = {
       enableHighAccuracy: true,
       timeout: 5000,
@@ -69,7 +69,7 @@ class PhotoAddPage extends React.Component {
     // set the map to show SF
     this.getLocation();
     const mapOptions = {
-      center: { lat: this.photo.lat, lng: this.currentLng }, // this is SF
+      center: { lat: this.currentLat, lng: this.currentLng }, // this is SF
       zoom: 15,
       disableDefaultUI: true,
       zoomControl: true,
