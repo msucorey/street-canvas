@@ -26,16 +26,17 @@ class PhotoAddPage extends React.Component {
     this.marker = null;
     this.addPhoto = this.addPhoto.bind(this);
     this.upload = this.upload.bind(this);
-    this.state = { loaded: false };
+    this.state = { loaded: false,
+                   currentLat: 37.7758,
+                   currentLng: -122.435,
+  };
     this.initMap = this.initMap.bind(this);
     this._handleClick = this._handleClick.bind(this);
     this.getLocation = this.getLocation.bind(this);
     this.setCoords = this.setCoords.bind(this);
-    this.currentLat = 37.7758;
-    this.currentLng = -122.435;
     this.options = {
       enableHighAccuracy: true,
-      timeout: 200,
+      timeout: 5000,
       maximumAge: 0,
     };
     this.error = this.error.bind(this);
@@ -63,6 +64,9 @@ class PhotoAddPage extends React.Component {
     this.photo.lng = pos.coords.longitude;
     this.currentLat = pos.coords.latitude;
     this.currentLng = pos.coords.longitude;
+    this.setState(
+      { currentLat: pos.coords.latitude, currentLng: pos.coords.longitude }
+    )
   }
 
   error(err) {
@@ -72,7 +76,7 @@ class PhotoAddPage extends React.Component {
   initMap() {
     // set the map to show SF
     const mapOptions = {
-      center: { lat: this.currentLat, lng: this.currentLng }, // this is SF
+      center: { lat: this.state.currentLat, lng: this.state.currentLng }, // this is SF
       zoom: 15,
       disableDefaultUI: true,
       zoomControl: true,

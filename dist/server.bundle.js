@@ -1668,16 +1668,17 @@
 	    _this.marker = null;
 	    _this.addPhoto = _this.addPhoto.bind(_this);
 	    _this.upload = _this.upload.bind(_this);
-	    _this.state = { loaded: false };
+	    _this.state = { loaded: false,
+	      currentLat: 37.7758,
+	      currentLng: -122.435
+	    };
 	    _this.initMap = _this.initMap.bind(_this);
 	    _this._handleClick = _this._handleClick.bind(_this);
 	    _this.getLocation = _this.getLocation.bind(_this);
 	    _this.setCoords = _this.setCoords.bind(_this);
-	    _this.currentLat = 37.7758;
-	    _this.currentLng = -122.435;
 	    _this.options = {
 	      enableHighAccuracy: true,
-	      timeout: 200,
+	      timeout: 5000,
 	      maximumAge: 0
 	    };
 	    _this.error = _this.error.bind(_this);
@@ -1710,6 +1711,7 @@
 	      this.photo.lng = pos.coords.longitude;
 	      this.currentLat = pos.coords.latitude;
 	      this.currentLng = pos.coords.longitude;
+	      this.setState({ currentLat: pos.coords.latitude, currentLng: pos.coords.longitude });
 	    }
 	  }, {
 	    key: 'error',
@@ -1721,7 +1723,7 @@
 	    value: function initMap() {
 	      // set the map to show SF
 	      var mapOptions = {
-	        center: { lat: this.currentLat, lng: this.currentLng }, // this is SF
+	        center: { lat: this.state.currentLat, lng: this.state.currentLng }, // this is SF
 	        zoom: 15,
 	        disableDefaultUI: true,
 	        zoomControl: true
