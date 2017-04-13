@@ -42,7 +42,21 @@ class App extends React.Component {
   render() {
     return (
       <div>
-
+        <Helmet
+          title="StreetCANVAS: Find Street Art Near You!"
+          titleTemplate="%s - Blog App"
+          meta={[
+            { charset: 'utf-8' },
+            {
+              'http-equiv': 'X-UA-Compatible',
+              content: 'IE=edge',
+            },
+            {
+              name: 'viewport',
+              content: 'width=device-width, initial-scale=1',
+            },
+          ]}
+        />
         <div>
           <Header toggleAddPost={this.toggleAddPostSection} logout={this.logoutUser} />
           <div className={styles.container}>
