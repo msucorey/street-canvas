@@ -42,6 +42,7 @@ class PhotoAddPage extends React.Component {
   }
 
   componentDidMount() {
+    this.getLocation();
     window.initMap = this.initMap;
     if (!this.state.loaded) {
       setTimeout(this.initMap, 500);
@@ -68,7 +69,6 @@ class PhotoAddPage extends React.Component {
 
   initMap() {
     // set the map to show SF
-    this.getLocation();
     const mapOptions = {
       center: { lat: this.currentLat, lng: this.currentLng }, // this is SF
       zoom: 15,

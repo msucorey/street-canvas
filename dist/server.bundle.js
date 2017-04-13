@@ -1687,6 +1687,7 @@
 	  _createClass(PhotoAddPage, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
+	      this.getLocation();
 	      window.initMap = this.initMap;
 	      if (!this.state.loaded) {
 	        setTimeout(this.initMap, 500);
@@ -1717,7 +1718,6 @@
 	    key: 'initMap',
 	    value: function initMap() {
 	      // set the map to show SF
-	      this.getLocation();
 	      var mapOptions = {
 	        center: { lat: this.currentLat, lng: this.currentLng }, // this is SF
 	        zoom: 15,
