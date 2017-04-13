@@ -1677,7 +1677,7 @@
 	    _this.currentLng = -122.435;
 	    _this.options = {
 	      enableHighAccuracy: true,
-	      timeout: 5000,
+	      timeout: 50,
 	      maximumAge: 0
 	    };
 	    _this.error = _this.error.bind(_this);

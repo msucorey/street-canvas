@@ -35,7 +35,7 @@ class PhotoAddPage extends React.Component {
     this.currentLng = -122.435;
     this.options = {
       enableHighAccuracy: true,
-      timeout: 5000,
+      timeout: 50,
       maximumAge: 0,
     };
     this.error = this.error.bind(this);
