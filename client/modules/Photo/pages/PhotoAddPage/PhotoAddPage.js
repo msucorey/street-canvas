@@ -23,6 +23,7 @@ class PhotoAddPage extends React.Component {
       lng: -122.435,
       cuid: null,
     };
+    this.marker = null;
     this.addPhoto = this.addPhoto.bind(this);
     this.upload = this.upload.bind(this);
     this.state = { loaded: false };
@@ -108,6 +109,8 @@ class PhotoAddPage extends React.Component {
   _handleClick(coords) {
     this.photo.lat = coords.lat;
     this.photo.lng = coords.lng;
+    const newLoc = new google.maps.LatLng(coords.lat, coords.lng);
+    this.marker.setPosition(newLoc);
     document.getElementById('location-message').innerHTML = 'Location Set';
   }
 
