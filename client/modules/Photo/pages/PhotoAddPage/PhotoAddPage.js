@@ -66,7 +66,7 @@ class PhotoAddPage extends React.Component {
     this.currentLng = pos.coords.longitude;
     this.setState(
       { currentLat: pos.coords.latitude, currentLng: pos.coords.longitude }
-    )
+    );
   }
 
   error(err) {
