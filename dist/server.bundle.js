@@ -1665,6 +1665,7 @@
 	      lng: -122.435,
 	      cuid: null
 	    };
+	    _this.map = null;
 	    _this.marker = null;
 	    _this.addPhoto = _this.addPhoto.bind(_this);
 	    _this.upload = _this.upload.bind(_this);
@@ -1711,7 +1712,9 @@
 	      this.photo.lng = pos.coords.longitude;
 	      this.currentLat = pos.coords.latitude;
 	      this.currentLng = pos.coords.longitude;
-	      this.setState({ currentLat: pos.coords.latitude, currentLng: pos.coords.longitude });
+	      var newLoc = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+	      this.map.setCenter(newLoc);
+	      this.setState({ loaded: true, currentLat: pos.coords.latitude, currentLng: pos.coords.longitude });
 	    }
 	  }, {
 	    key: 'error',
