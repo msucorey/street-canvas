@@ -135,6 +135,18 @@
 
 /***/ },
 /* 4 */
+/***/ function(module, exports) {
+
+	module.exports = require("mongoose");
+
+/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
+	module.exports = require("react-cookie");
+
+/***/ },
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -188,18 +200,6 @@
 	exports.default = PhotoReducer;
 
 /***/ },
-/* 5 */
-/***/ function(module, exports) {
-
-	module.exports = require("mongoose");
-
-/***/ },
-/* 6 */
-/***/ function(module, exports) {
-
-	module.exports = require("react-cookie");
-
-/***/ },
 /* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -224,7 +224,7 @@
 	exports.updateUserInfoFailure = updateUserInfoFailure;
 	exports.loadUserProps = loadUserProps;
 	
-	var _reactCookie = __webpack_require__(6);
+	var _reactCookie = __webpack_require__(5);
 	
 	var _reactCookie2 = _interopRequireDefault(_reactCookie);
 	
@@ -507,7 +507,7 @@
 	  value: true
 	});
 	
-	var _mongoose = __webpack_require__(5);
+	var _mongoose = __webpack_require__(4);
 	
 	var _mongoose2 = _interopRequireDefault(_mongoose);
 	
@@ -539,7 +539,7 @@
 	  value: true
 	});
 	
-	var _mongoose = __webpack_require__(5);
+	var _mongoose = __webpack_require__(4);
 	
 	var _mongoose2 = _interopRequireDefault(_mongoose);
 	
@@ -596,7 +596,7 @@
 	
 	var _reactRouter = __webpack_require__(1);
 	
-	var _reactCookie = __webpack_require__(6);
+	var _reactCookie = __webpack_require__(5);
 	
 	var _reactCookie2 = _interopRequireDefault(_reactCookie);
 	
@@ -1421,7 +1421,7 @@
 	
 	var _Header2 = _interopRequireDefault(_Header);
 	
-	var _reactCookie = __webpack_require__(6);
+	var _reactCookie = __webpack_require__(5);
 	
 	var _reactCookie2 = _interopRequireDefault(_reactCookie);
 	
@@ -1608,10 +1608,6 @@
 	
 	var _Photo2 = _interopRequireDefault(_Photo);
 	
-	var _PhotoActions = __webpack_require__(3);
-	
-	var _PhotoReducer = __webpack_require__(4);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1623,12 +1619,6 @@
 	// import { bindActionCreators } from 'redux';
 	
 	// Import Style
-	
-	
-	// Import Actions
-	
-	
-	// Import Selectors
 	
 	
 	var _getCoordsObj = function _getCoordsObj(latLng) {
@@ -1660,8 +1650,8 @@
 	      e.preventDefault();
 	      // alert('adding photo from form');
 	      _this.photo.description = _this.refs.description.value;
-	      _this.photo.lat = _this.photo.lat || _this.currentLat;
-	      _this.photo.lng = _this.photo.lng || _this.currentLng;
+	      // this.photo.lat = this.photo.lat || this.currentLat;
+	      // this.photo.lng = this.photo.lng || this.currentLng;
 	      _this.props.addPhoto(_this.photo.photo_url, _this.photo.description, _this.photo.description, _this.photo.lat, _this.photo.lng);
 	      setTimeout(function () {
 	        return _reactRouter.browserHistory.push('/photos/' + _this.props.photos.data[0].cuid);
@@ -1671,8 +1661,8 @@
 	    _this.photo = {
 	      photo_url: null,
 	      description: null,
-	      lat: null,
-	      lng: null,
+	      lat: 37.7758,
+	      lng: -122.435,
 	      cuid: null
 	    };
 	    _this.addPhoto = _this.addPhoto.bind(_this);
@@ -1682,8 +1672,8 @@
 	    _this._handleClick = _this._handleClick.bind(_this);
 	    _this.getLocation = _this.getLocation.bind(_this);
 	    _this.setCoords = _this.setCoords.bind(_this);
-	    _this.currentLat = 37.7758;
-	    _this.currentLng = -122.435;
+	    // this.currentLat = 37.7758;
+	    // this.currentLng = -122.435;
 	    _this.options = {
 	      enableHighAccuracy: true,
 	      timeout: 5000,
@@ -1706,16 +1696,16 @@
 	    value: function getLocation() {
 	      if (navigator.geolocation) {
 	        navigator.geolocation.getCurrentPosition(this.setCoords, this.error, this.options);
-	        console.log("position set");
+	        console.log('position set');
 	      } else {
-	        console.log("no geolocation");
+	        console.log('no geolocation');
 	      }
 	    }
 	  }, {
 	    key: 'setCoords',
 	    value: function setCoords(pos) {
-	      this.currentLat = pos.coords.latitude;
-	      this.currentLng = pos.coords.longitude;
+	      this.photo.lat = pos.coords.latitude;
+	      this.photo.lng = pos.coords.longitude;
 	    }
 	  }, {
 	    key: 'error',
@@ -1728,7 +1718,7 @@
 	      // set the map to show SF
 	      this.getLocation();
 	      var mapOptions = {
-	        center: { lat: this.currentLat, lng: this.currentLng }, // this is SF
+	        center: { lat: this.photo.lat, lng: this.currentLng }, // this is SF
 	        zoom: 15,
 	        disableDefaultUI: true,
 	        zoomControl: true
@@ -1754,18 +1744,21 @@
 	    value: function _handleClick(coords) {
 	      this.photo.lat = coords.lat;
 	      this.photo.lng = coords.lng;
-	      document.getElementById('location-message').innerHTML = "Location Set";
+	      document.getElementById('location-message').innerHTML = 'Location Set';
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this3 = this;
 	
-	      var content = null;
 	      if (this.state.loaded) {
 	        google.maps.event.addListener(this.map, 'click', function (event) {
 	          var coords = _getCoordsObj(event.latLng);
 	          _this3._handleClick(coords);
+	        });
+	        this.marker = new google.maps.Marker({
+	          position: { lat: this.photo.lat, lng: this.photo.lng },
+	          map: this.map
 	        });
 	      }
 	      return _jsx('div', {}, void 0, _jsx('div', {
@@ -1798,7 +1791,6 @@
 	}(_react2.default.Component);
 	
 	exports.default = PhotoAddPage;
-	
 	// <script type="text/javascript">
 	//     window.CLOUDINARY_OPTIONS = {
 	//       cloud_name: "streetcanvas",
@@ -1859,7 +1851,7 @@
 	
 	var _PhotoActions = __webpack_require__(3);
 	
-	var _PhotoReducer = __webpack_require__(4);
+	var _PhotoReducer = __webpack_require__(6);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -2018,7 +2010,7 @@
 	
 	var _PhotoActions = __webpack_require__(3);
 	
-	var _PhotoReducer = __webpack_require__(4);
+	var _PhotoReducer = __webpack_require__(6);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -2139,7 +2131,7 @@
 	
 	var _PhotoActions = __webpack_require__(3);
 	
-	var _PhotoReducer = __webpack_require__(4);
+	var _PhotoReducer = __webpack_require__(6);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -2886,7 +2878,7 @@
 	
 	var _UserReducer2 = _interopRequireDefault(_UserReducer);
 	
-	var _PhotoReducer = __webpack_require__(4);
+	var _PhotoReducer = __webpack_require__(6);
 	
 	var _PhotoReducer2 = _interopRequireDefault(_PhotoReducer);
 	
@@ -3261,7 +3253,7 @@
 	  value: true
 	});
 	
-	var _mongoose = __webpack_require__(5);
+	var _mongoose = __webpack_require__(4);
 	
 	var _mongoose2 = _interopRequireDefault(_mongoose);
 	
@@ -3349,7 +3341,7 @@
 	
 	var _compression2 = _interopRequireDefault(_compression);
 	
-	var _mongoose = __webpack_require__(5);
+	var _mongoose = __webpack_require__(4);
 	
 	var _mongoose2 = _interopRequireDefault(_mongoose);
 	
@@ -3393,7 +3385,7 @@
 	
 	var _reactHelmet2 = _interopRequireDefault(_reactHelmet);
 	
-	var _reactCookie = __webpack_require__(6);
+	var _reactCookie = __webpack_require__(5);
 	
 	var _reactCookie2 = _interopRequireDefault(_reactCookie);
 	
