@@ -35,7 +35,7 @@ class PhotoAddPage extends React.Component {
     this.currentLng = -122.435;
     this.options = {
       enableHighAccuracy: true,
-      timeout: 50,
+      timeout: 200,
       maximumAge: 0,
     };
     this.error = this.error.bind(this);
@@ -52,13 +52,13 @@ class PhotoAddPage extends React.Component {
   getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.setCoords, this.error, this.options);
-      console.log('position set');
     } else {
       console.log('no geolocation');
     }
   }
 
   setCoords(pos) {
+    console.log('position set');
     this.photo.lat = pos.coords.latitude;
     this.photo.lng = pos.coords.longitude;
     this.currentLat = pos.coords.latitude;

@@ -1677,7 +1677,7 @@
 	    _this.currentLng = -122.435;
 	    _this.options = {
 	      enableHighAccuracy: true,
-	      timeout: 50,
+	      timeout: 200,
 	      maximumAge: 0
 	    };
 	    _this.error = _this.error.bind(_this);
@@ -1698,7 +1698,6 @@
 	    value: function getLocation() {
 	      if (navigator.geolocation) {
 	        navigator.geolocation.getCurrentPosition(this.setCoords, this.error, this.options);
-	        console.log('position set');
 	      } else {
 	        console.log('no geolocation');
 	      }
@@ -1706,6 +1705,7 @@
 	  }, {
 	    key: 'setCoords',
 	    value: function setCoords(pos) {
+	      console.log('position set');
 	      this.photo.lat = pos.coords.latitude;
 	      this.photo.lng = pos.coords.longitude;
 	      this.currentLat = pos.coords.latitude;
