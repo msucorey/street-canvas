@@ -6,15 +6,9 @@ import { browserHistory } from 'react-router';
 // Import Style
 import styles from '../../Photo.css';
 
-// Import Actions
-import { fetchPhoto, addPhotoRequest } from '../../PhotoActions';
-
-// Import Selectors
-import { getPhoto } from '../../PhotoReducer';
-
 const _getCoordsObj = latLng => ({
   lat: latLng.lat(),
-  lng: latLng.lng()
+  lng: latLng.lng(),
 });
 
 
@@ -25,8 +19,8 @@ class PhotoAddPage extends React.Component {
     this.photo = {
       photo_url: null,
       description: null,
-      lat: null,
-      lng: null,
+      lat: 37.7758,
+      lng: -122.435,
       cuid: null,
     };
     this.addPhoto = this.addPhoto.bind(this);
@@ -36,8 +30,8 @@ class PhotoAddPage extends React.Component {
     this._handleClick = this._handleClick.bind(this);
     this.getLocation = this.getLocation.bind(this);
     this.setCoords = this.setCoords.bind(this);
-    this.currentLat = 37.7758;
-    this.currentLng = -122.435;
+    // this.currentLat = 37.7758;
+    // this.currentLng = -122.435;
     this.options = {
       enableHighAccuracy: true,
       timeout: 5000,
@@ -56,15 +50,15 @@ class PhotoAddPage extends React.Component {
   getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.setCoords, this.error, this.options);
-      console.log("position set");
+      console.log('position set');
     } else {
-      console.log("no geolocation");
+      console.log('no geolocation');
     }
   }
 
   setCoords(pos) {
-    this.currentLat = pos.coords.latitude;
-    this.currentLng = pos.coords.longitude;
+    this.photo.lat = pos.coords.latitude;
+    this.photo.lng = pos.coords.longitude;
   }
 
   error(err) {
@@ -75,7 +69,7 @@ class PhotoAddPage extends React.Component {
     // set the map to show SF
     this.getLocation();
     const mapOptions = {
-      center: { lat: this.currentLat, lng: this.currentLng }, // this is SF
+      center: { lat: this.photo.lat, lng: this.currentLng }, // this is SF
       zoom: 15,
       disableDefaultUI: true,
       zoomControl: true,
@@ -88,8 +82,8 @@ class PhotoAddPage extends React.Component {
     e.preventDefault();
     // alert('adding photo from form');
     this.photo.description = this.refs.description.value;
-    this.photo.lat = this.photo.lat || this.currentLat;
-    this.photo.lng = this.photo.lng || this.currentLng;
+    // this.photo.lat = this.photo.lat || this.currentLat;
+    // this.photo.lng = this.photo.lng || this.currentLng;
     this.props.addPhoto(
       this.photo.photo_url,
       this.photo.description,
@@ -114,21 +108,24 @@ class PhotoAddPage extends React.Component {
   _handleClick(coords) {
     this.photo.lat = coords.lat;
     this.photo.lng = coords.lng;
-    document.getElementById('location-message').innerHTML = "Location Set";
+    document.getElementById('location-message').innerHTML = 'Location Set';
   }
 
   render() {
-    let content = null;
     if (this.state.loaded) {
       google.maps.event.addListener(this.map, 'click', event => {
         const coords = _getCoordsObj(event.latLng);
         this._handleClick(coords);
       });
+      this.marker = new google.maps.Marker({
+        position: { lat: this.photo.lat, lng: this.photo.lng },
+        map: this.map
+      });
     }
     return (
       <div >
         <div className={styles['add-container']}>
-          <h2 >Add a Photo</h2>
+          <h2>Add a Photo</h2>
           <form action="/photos" method="post" encType="multipart/form-data" >
           <h3>Step 1:</h3>
             <button onClick={this.upload} className={styles['upload-button']}>UPLOAD IMAGE</button>
@@ -147,13 +144,9 @@ class PhotoAddPage extends React.Component {
     );
   }
 
-
 }
 
 export default PhotoAddPage;
-
-
-
 // <script type="text/javascript">
 //     window.CLOUDINARY_OPTIONS = {
 //       cloud_name: "streetcanvas",

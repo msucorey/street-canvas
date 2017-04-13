@@ -1217,7 +1217,17 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      return _jsx('div', {}, void 0, _jsx('div', {}, void 0, _jsx(_Header2.default, {
+	      return _jsx('div', {}, void 0, _jsx(_reactHelmet2.default, {
+	        title: 'StreetCANVAS: Find Street Art Near You!',
+	        titleTemplate: '%s - Blog App',
+	        meta: [{ charset: 'utf-8' }, {
+	          'http-equiv': 'X-UA-Compatible',
+	          content: 'IE=edge'
+	        }, {
+	          name: 'viewport',
+	          content: 'width=device-width, initial-scale=1'
+	        }]
+	      }), _jsx('div', {}, void 0, _jsx(_Header2.default, {
 	        toggleAddPost: this.toggleAddPostSection,
 	        logout: this.logoutUser
 	      }), _jsx('div', {
@@ -3460,7 +3470,7 @@
 	  var assetsManifest = process.env.webpackAssets && JSON.parse(process.env.webpackAssets);
 	  var chunkManifest = process.env.webpackChunkAssets && JSON.parse(process.env.webpackChunkAssets);
 	
-	  return '\n    <!doctype html>\n    <html>\n      <head>\n        ' + head.base.toString() + '\n        ' + head.title.toString() + '\n        ' + head.meta.toString() + '\n        ' + head.link.toString() + '\n        ' + head.script.toString() + '\n\n        ' + (process.env.NODE_ENV === 'production' ? '<link rel=\'stylesheet\' href=\'' + assetsManifest['/main.css'] + '\' />' : '') + '\n        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700" rel="stylesheet">\n        <link rel="shortcut icon" href="http://res.cloudinary.com/streetcanvas/image/upload/v1491277108/favicon_dvbm6p.ico" type="image/png" />\n        <script src=\'//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\'></script>\n        <script src="//widget.cloudinary.com/global/all.js" type="text/javascript">\n  </script>\n  <script type="text/javascript">\n      window.CLOUDINARY_OPTIONS = {\n        cloud_name: "streetcanvas",\n        upload_preset: "ivjdpthx",\n        stylesheet: \'#cloudinary-overlay.modal { background-color: rgba(0,0,0,.9);}\'\n      }\n    </script>\n        </body>\n      </head>\n      <body>\n        <div id="root">' + html + '</div>\n        <script>\n          window.__INITIAL_STATE__ = ' + JSON.stringify(initialState) + ';\n          ' + (process.env.NODE_ENV === 'production' ? '//<![CDATA[\n          window.webpackManifest = ' + JSON.stringify(chunkManifest) + ';\n          //]]>' : '') + '\n        </script>\n        <script src=\'' + (process.env.NODE_ENV === 'production' ? assetsManifest['/vendor.js'] : '/vendor.js') + '\'></script>\n        <script src=\'' + (process.env.NODE_ENV === 'production' ? assetsManifest['/main.js'] : '/app.js') + '\'></script>\n        <script\n          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3xkNlmWAK_4v52ewKZbnUoifMcYAxIy8"></script>\n\n    </html>\n  ';
+	  return '\n    <!doctype html>\n    <html>\n      <head>\n        ' + head.base.toString() + '\n        ' + head.title.toString() + '\n        ' + head.meta.toString() + '\n        ' + head.link.toString() + '\n        ' + head.script.toString() + '\n        <meta name="viewport" content="width=device-width, initial-scale=1">\n\n        ' + (process.env.NODE_ENV === 'production' ? '<link rel=\'stylesheet\' href=\'' + assetsManifest['/main.css'] + '\' />' : '') + '\n        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700" rel="stylesheet">\n        <link rel="shortcut icon" href="http://res.cloudinary.com/streetcanvas/image/upload/v1491277108/favicon_dvbm6p.ico" type="image/png" />\n        <script src=\'//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\'></script>\n        <script src="//widget.cloudinary.com/global/all.js" type="text/javascript">\n  </script>\n  <script type="text/javascript">\n      window.CLOUDINARY_OPTIONS = {\n        cloud_name: "streetcanvas",\n        upload_preset: "ivjdpthx",\n        stylesheet: \'#cloudinary-overlay.modal { background-color: rgba(0,0,0,.9);}\'\n      }\n    </script>\n        </body>\n      </head>\n      <body>\n        <div id="root">' + html + '</div>\n        <script>\n          window.__INITIAL_STATE__ = ' + JSON.stringify(initialState) + ';\n          ' + (process.env.NODE_ENV === 'production' ? '//<![CDATA[\n          window.webpackManifest = ' + JSON.stringify(chunkManifest) + ';\n          //]]>' : '') + '\n        </script>\n        <script src=\'' + (process.env.NODE_ENV === 'production' ? assetsManifest['/vendor.js'] : '/vendor.js') + '\'></script>\n        <script src=\'' + (process.env.NODE_ENV === 'production' ? assetsManifest['/main.js'] : '/app.js') + '\'></script>\n        <script\n          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3xkNlmWAK_4v52ewKZbnUoifMcYAxIy8"></script>\n\n    </html>\n  ';
 	};
 	
 	var renderError = function renderError(err) {
