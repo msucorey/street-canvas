@@ -19,17 +19,19 @@ export function getPosts(req, res) {
 }
 
 /**
- * Save a post
+ * Add a post
  * @param req
  * @param res
  * @returns void
  */
 export function addPost(req, res) {
-  if (!req.body.post.name || !req.body.post.title || !req.body.post.content) {
+  const post = req?.body?.post;
+  const { name, title, content } = post;
+  if (!name || !title || !content) {
     res.status(403).end();
   }
 
-  const newPost = new Post(req.body.post);
+  const newPost = new Post(post);
 
   // Let's sanitize inputs
   newPost.title = sanitizeHtml(newPost.title);
